@@ -1,6 +1,13 @@
 import React from 'react'
+import { ChatThread } from '../types/chat'
 
-export default function ThreadButton({ thread, activeThread, setActiveThread }) {
+interface ThreadListButtonProps {
+  thread: ChatThread
+  activeThread: string | null
+  setActiveThread: (threadId: string | null) => void
+}
+
+export default function ThreadListButton({ thread, activeThread, setActiveThread }: ThreadListButtonProps) {
   return (
     <button
       className={`

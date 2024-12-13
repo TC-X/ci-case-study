@@ -1,15 +1,15 @@
 import React from 'react'
-import ChatList from '../components/ChatList'
-import ChatContent from '../components/ChatContent'
+import Sidebar from '../components/Layout/Sidebar.tsx'
+import Chat from '../components/Chat/Chat.tsx'
 
-export default function Chat(): React.ReactElement {
+export default function ChatPage(): React.ReactElement {
   return (
     <div className='w-full flex'>
-      <aside className='p-4 bg-gray-50 dark:bg-neutral-700 rounded-xl'>
-        <ChatList threads={fakeThreads} />
+      <aside>
+        <Sidebar threads={fakeThreads} />
       </aside>
-      <main className='px-4 flex-1'>
-        <ChatContent thread={fakeThread} threadMessages={fakeMessages} />
+      <main className='flex-1'>
+        <Chat thread={fakeThread} threadMessages={fakeMessages} />
       </main>
     </div>
   )
