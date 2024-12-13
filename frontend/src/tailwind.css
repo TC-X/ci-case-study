@@ -1,3 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html,
+body {
+  @apply bg-white dark:bg-gray-950;
+
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+  }
+}
+
+svg {
+  @apply shrink-0;
+}
+
+button,
+a {
+  @apply focus:outline-none focus-within:outline-none;
+}
+
+button:active,
+a:active {
+  @apply scale-98 transition-transform z-[1];
+}
+
+button[disabled]:active,
+a[disabled]:active {
+  @apply transform-none;
+}
+
+a span,
+button span,
+a img,
+button img {
+  @apply select-none;
+}
