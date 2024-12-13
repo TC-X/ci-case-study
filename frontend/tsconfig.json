@@ -1,3 +1,14 @@
 {
-  "include": ["custom.d.ts"]
+  "include": ["custom.d.ts"],
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "baseUrl": "src",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@hooks/*": ["hooks/*"],
+      "@services/*": ["services/*"]
+    }
+  }
 }
