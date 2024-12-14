@@ -1,21 +1,27 @@
 import React from 'react'
 import { Thread } from '../types/chat'
+import { useActiveThreadContext } from '../context/activeThreadContext'
 
 interface ThreadListItemProps {
   thread: Thread
-  activeThread: string | null
-  setActiveThread: (threadId: string | null) => void
 }
 
-export default function ThreadListItem({ thread, activeThread, setActiveThread }: ThreadListItemProps) {
+export default function ThreadListItem({ thread }: ThreadListItemProps) {
+  const { activeThread, setActiveThread } = useActiveThreadContext()
+
+  const handleThreadClick = () => {
+    setActiveThread(thread)
+    window.history.pushState(null, '', `/c/${thread.threadId}`)
+  }
+
   return (
     <button
       className={`
         p-2 w-full flex text-left dark:hover:bg-neutral-800 rounded-md transition-colors duration-75
-        ${activeThread === thread.threadId ? 'bg-white dark:bg-neutral-800' : 'hover:bg-gray-50'}  
+        ${activeThread === thread ? 'bg-white dark:bg-neutral-800' : 'hover:bg-gray-50'}  
       `}
-      onClick={setActiveThread.bind(null, thread.threadId)}
-      disabled={activeThread === thread.threadId}
+      onClick={handleThreadClick}
+      disabled={activeThread === thread}
     >
       <span className='line-clamp-1 break-all'>{thread.threadTitle}</span>
     </button>

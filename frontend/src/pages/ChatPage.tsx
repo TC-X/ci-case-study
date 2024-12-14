@@ -1,15 +1,47 @@
 import React from 'react'
 import Sidebar from '../components/Layout/Sidebar.tsx'
 import Chat from '../components/Chat/Chat.tsx'
+import { useActiveThreadContext } from '../context/activeThreadContext.tsx'
 
 export default function ChatPage(): React.ReactElement {
+  const threadId: string = window.location.pathname.split('/c/')[1] || '' // we can use react-router in real world scenario
+  const { activeThread, setActiveThread } = useActiveThreadContext()
+
+  React.useEffect(() => {
+    // NOTE:
+    // In a real-world scenario, we would fetch the thread data from database
+    // instead of using filtering from fakeThreads
+    const findThreadById = (id: string) => {
+      return fakeThreads.find((thread) => thread.threadId === id) || null
+    }
+
+    // bail out and redirect to home if thread not found
+    if (findThreadById(threadId) === null) {
+      window.history.pushState(null, '', `/`)
+      return
+    }
+
+    // set initial active thread for first load
+    setActiveThread(findThreadById(threadId))
+
+    // watch popstate to handle browser back/forward navigation
+    // so active thread can be updated accordingly
+    const handlePopState = () => {
+      const newThreadId = window.location.pathname.split('/c/')[1] || ''
+      setActiveThread(findThreadById(newThreadId))
+    }
+
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [threadId, setActiveThread])
+
   return (
     <div className='w-full flex'>
       <aside>
         <Sidebar threads={fakeThreads} />
       </aside>
       <main className='flex-1'>
-        <Chat thread={fakeThread} threadMessages={fakeMessages} />
+        <Chat thread={activeThread} />
       </main>
     </div>
   )
@@ -41,11 +73,6 @@ const fakeThreads = [
     threadTitle: 'How to improve my focus and concentration?',
   },
 ]
-
-const fakeThread = {
-  threadId: '698ca073-9aa4-4555-a3df-006eda8cf340',
-  threadTitle: 'Provide a weekly meal plan for weight loss',
-}
 
 const fakeMessages = [
   {

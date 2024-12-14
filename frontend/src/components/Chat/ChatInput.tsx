@@ -1,7 +1,11 @@
 import React from 'react'
 import { IconArrowUp } from '../../utils/icons'
 
-export default function ChatInput() {
+interface ChatInputProps {
+  onSendMessage: (contentBody: string) => Promise<void>
+}
+
+export default function ChatInput({ onSendMessage }: ChatInputProps) {
   const textareaRef = React.useRef<HTMLTextAreaElement>(null)
   const [userPrompt, setUserPrompt] = React.useState('')
 
@@ -15,11 +19,11 @@ export default function ChatInput() {
   }
 
   /* handle form submission */
-  const handleSubmit = (e?: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e?: React.FormEvent<HTMLFormElement>) => {
     e && e.preventDefault()
 
     // todo: send userPrompt to backend
-    console.log(userPrompt)
+    await onSendMessage(userPrompt)
 
     // clear textarea and focus
     setUserPrompt('')
