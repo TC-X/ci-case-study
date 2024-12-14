@@ -29,7 +29,7 @@ export default function ChatHeader({ thread }: ChatHeaderProps) {
         </div>
       )}
       <div>
-        <h1 className='font-bold text-xl line-clamp-1 break-all'>{thread?.threadTitle || 'New'}</h1>
+        <h1 className='font-bold text-xl line-clamp-1 break-all'>{thread?.threadTitle || 'New Chat'}</h1>
       </div>
       <div className='ms-auto flex max-lg:gap-3'>
         <ButtonIcon handleOnClick={() => alert('Coming soon!')}>
