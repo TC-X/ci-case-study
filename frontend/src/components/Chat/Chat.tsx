@@ -1,24 +1,24 @@
 import React from 'react'
 import ChatInput from './ChatInput'
-import ChatMessages from './ChatMessages'
+import ChatBody from './ChatBody'
 import ChatHeader from './ChatHeader'
-import { ChatMessage, ChatThread } from '../../types/chat'
+import { Message, Thread } from '../../types/chat'
 
 interface ChatProps {
-  thread: ChatThread
-  threadMessages: ChatMessage[]
+  thread: Thread
+  threadMessages: Message[]
 }
 
 export default function Chat({ thread, threadMessages }: ChatProps) {
   return (
     <div className='h-full flex flex-col items-center'>
-      <div className='mb-2 w-full grid-layout-chat items-center'>
+      <div className='mb-4 w-full flex gap-4 items-center'>
         <ChatHeader thread={thread} />
       </div>
-      <div className={`size-full grid-layout-chat overflow-hidden`}>
-        <div className={`col-start-2 max-lg:col-start-1 max-lg:col-span-3 flex flex-col overflow-hidden`}>
+      <div className={`size-full flex justify-center overflow-hidden`}>
+        <div className={`max-w-[48rem] flex flex-col overflow-hidden`}>
           <div className='flex-1 overflow-y-auto'>
-            <ChatMessages threadMessages={threadMessages} />
+            <ChatBody threadMessages={threadMessages} />
           </div>
           <div>
             <ChatInput />

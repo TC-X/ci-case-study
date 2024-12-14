@@ -1,9 +1,9 @@
 import React from 'react'
-import { ChatThread } from '../types/chat'
-import ThreadListButton from './ThreadListButton'
+import { Thread } from '../types/chat'
+import ThreadListItem from './ThreadListItem'
 
 interface ThreadListProps {
-  threads: ChatThread[]
+  threads: Thread[]
 }
 
 export default function ThreadList({ threads }: ThreadListProps) {
@@ -14,7 +14,7 @@ export default function ThreadList({ threads }: ThreadListProps) {
       <ol>
         {threads?.map((thread) => (
           <li key={thread.threadId}>
-            <ThreadListButton thread={thread} activeThread={activeThread} setActiveThread={setActiveThread} />
+            <ThreadListItem thread={thread} activeThread={activeThread} setActiveThread={setActiveThread} />
           </li>
         ))}
       </ol>

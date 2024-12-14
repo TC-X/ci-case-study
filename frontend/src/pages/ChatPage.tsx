@@ -57,7 +57,7 @@ const fakeMessages = [
   {
     messageId: 'd7e3c030-eec3-4a73-a16b-8190badd35d6',
     messageModel: 'gpt-4o',
-    messageAuthor: 'system',
+    messageAuthor: 'assistant',
     messageContent:
       'Sure! Here is a weekly meal plan for weight loss: Monday: Breakfast - Oatmeal with berries, Lunch - Grilled chicken salad, Dinner - Baked salmon with steamed vegetables. Tuesday: Breakfast - Greek yogurt with honey, Lunch - Turkey and avocado wrap, Dinner - Quinoa-stuffed bell peppers.',
   },
@@ -70,7 +70,7 @@ const fakeMessages = [
   {
     messageId: 'e0facfe3-aac5-4f11-b3a3-777ab305baa7',
     messageModel: 'gpt-4o',
-    messageAuthor: 'system',
+    messageAuthor: 'assistant',
     messageContent: "You're welcome! If you have any other questions, feel free to ask.",
   },
 ]

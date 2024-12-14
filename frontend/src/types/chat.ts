@@ -1,9 +1,9 @@
-export interface ChatThread {
+export interface Thread {
   threadId: string
   threadTitle: string
 }
 
-export interface ChatMessage {
+export interface Message {
   messageId: string
   messageModel: string | null
   messageAuthor: string
