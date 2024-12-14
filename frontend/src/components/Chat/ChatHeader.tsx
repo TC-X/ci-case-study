@@ -15,12 +15,9 @@ export default function ChatHeader({ thread }: ChatHeaderProps) {
   const { isMobile } = getUserDevice()
   const { isHidden, setIsHidden } = useSidebarContext()
 
-  console.log(' isMobile, isTablet, isDesktop', isMobile)
-
+  // Hide the sidebar on mobile
   React.useEffect(() => {
-    if (isMobile) {
-      setIsHidden(true)
-    }
+    isMobile && setIsHidden(true)
   }, [isMobile, setIsHidden])
 
   return (

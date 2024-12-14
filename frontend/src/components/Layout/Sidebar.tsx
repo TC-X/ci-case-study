@@ -22,8 +22,8 @@ export default function Sidebar({ threads }: SidebarProps) {
     `}
     >
       <div className='flex gap-3 justify-between'>
-        <ButtonSidebarHide className='lg:hover:bg-gray-50' />
-        <ButtonNewChat className='lg:hover:bg-gray-50' />
+        <ButtonSidebarHide className='lg:hover:bg-gray-50 lg:dark:hover:bg-neutral-600' />
+        <ButtonNewChat className='lg:hover:bg-gray-50 lg:dark:hover:bg-neutral-600' />
       </div>
       <div className='px-2 pt-3 pb-2'>
         <h2 className='font-bold text-sm line-clamp-1 break-all'>Chat History</h2>
