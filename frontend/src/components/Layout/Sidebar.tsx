@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { ChatThread } from '../../types/chat'
 import ThreadList from '../ThreadList'
-import { IconSidebarHide } from '../../utils/icons'
 import { useSidebarContext } from '../../context/SidebarContext'
 
 interface SidebarProps {
@@ -11,34 +10,19 @@ interface SidebarProps {
 export default function Sidebar({ threads }: SidebarProps) {
   const { isHidden } = useSidebarContext()
 
-  useEffect(() => {
-    console.log(isHidden)
-  }, [isHidden])
-
   return (
     <div
       className={`
-      p-4 h-full flex flex-col gap-3 transition-[width_padding] duration-150 ease-in-out
-      bg-gray-50 dark:bg-neutral-700 rounded-xl
-      ${isHidden ? 'w-0 px-0 overflow-hidden' : 'w-60'}
+      p-4 size-full flex flex-col transition-[max-width_padding_margin] duration-150 ease-in-out
+      bg-gray-100 dark:bg-neutral-700 rounded-xl
+      max-lg:max-w-0 max-lg:px-0 max-lg:me-0 max-lg:overflow-hidden
+      ${isHidden ? 'max-w-0 px-0 me-0 overflow-hidden' : 'me-4 max-w-72'}
     `}
     >
-      <SidebarHideButton />
+      <div className='px-2 py-4'>
+        <h2 className='font-bold text-sm line-clamp-1 break-all'>Chat History</h2>
+      </div>
       <ThreadList threads={threads} />
-    </div>
-  )
-}
-
-const SidebarHideButton = () => {
-  const { isHidden, setIsHidden } = useSidebarContext()
-
-  return (
-    <div className='p-2 flex'>
-      <button type='button' onClick={() => setIsHidden(!isHidden)}>
-        <div className='min-w-6 min-h-6 max-w-6 max-h-6 grid place-content-center'>
-          <IconSidebarHide className='dark:[&>path]:stroke-white' size={20} />
-        </div>
-      </button>
     </div>
   )
 }

@@ -11,7 +11,7 @@ interface ChatMessageItemProps {
 
 export default function ChatMessages({ threadMessages }: ChatMessagesProps) {
   return (
-    <div className='prose prose-neutral'>
+    <div className='size-full prose prose-neutral dark:prose-invert'>
       {threadMessages?.map((message) => (
         <ChatMessageItem key={message.messageId} message={message} />
       ))}

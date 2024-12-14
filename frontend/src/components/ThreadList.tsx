@@ -10,7 +10,7 @@ export default function ThreadList({ threads }: ThreadListProps) {
   const [activeThread, setActiveThread] = React.useState<string | null>(null)
 
   return (
-    <nav>
+    <nav className='overflow-y-auto'>
       <ol>
         {threads?.map((thread) => (
           <li key={thread.threadId}>

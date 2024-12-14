@@ -11,16 +11,18 @@ interface ChatProps {
 
 export default function Chat({ thread, threadMessages }: ChatProps) {
   return (
-    <div className='px-4 h-full flex justify-center'>
-      <div className='w-full max-w-[48rem] flex flex-col'>
-        <div className='pb-4'>
-          <ChatHeader thread={thread} />
-        </div>
-        <div className='flex-1 overflow-y-auto'>
-          <ChatMessages threadMessages={threadMessages} />
-        </div>
-        <div>
-          <ChatInput />
+    <div className='h-full flex flex-col items-center'>
+      <div className='mb-2 w-full grid-layout-chat items-center'>
+        <ChatHeader thread={thread} />
+      </div>
+      <div className={`size-full grid-layout-chat overflow-hidden`}>
+        <div className={`col-start-2 max-lg:col-start-1 max-lg:col-span-3 flex flex-col overflow-hidden`}>
+          <div className='flex-1 overflow-y-auto'>
+            <ChatMessages threadMessages={threadMessages} />
+          </div>
+          <div>
+            <ChatInput />
+          </div>
         </div>
       </div>
     </div>
