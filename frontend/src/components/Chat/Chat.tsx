@@ -4,14 +4,17 @@ import ChatBody from './ChatBody'
 import ChatHeader from './ChatHeader'
 import { Message, Thread } from '../../types/chat'
 import { getChatResponse } from '../../services/chatService'
+import { IsResolvingContextProvider } from '../../context/isResolvingContext'
 
 interface ChatProps {
   thread: Thread | null
 }
 
 export default function Chat({ thread }: ChatProps) {
-  const textareaRef = React.useRef<HTMLTextAreaElement>(null)
   const [messages, setMessages] = React.useState<Message[]>([])
+
+  const textareaRef = React.useRef<HTMLTextAreaElement>(null)
+  const scrollWindowRef = React.useRef<HTMLDivElement>(null)
 
   // NOTE: In a real application, I would fetch the message from database/api here
   React.useEffect(() => {
@@ -39,7 +42,7 @@ export default function Chat({ thread }: ChatProps) {
       const inputContext = [...messages, userMessage] // prevent batched state updates (setMessages) causing outdated messages
       const response = await getChatResponse({ inputContext })
 
-      console.log(response)
+      // console.log(response)
 
       // NOTE: mapping api response with type Message here, if not from the backend
       const responseMessage: Message = {
@@ -62,21 +65,27 @@ export default function Chat({ thread }: ChatProps) {
   }
 
   return (
-    <div className='h-full flex flex-col items-center'>
-      <div className='mb-4 w-full flex gap-4 items-center'>
-        <ChatHeader thread={thread} />
-      </div>
-      <div className='size-full flex justify-center overflow-hidden'>
-        <div className='w-full max-w-[48rem] flex flex-col overflow-hidden'>
-          <div className='flex-1 overflow-y-auto'>
-            <ChatBody messages={messages} />
-          </div>
-          <div>
-            <ChatInput textareaRef={textareaRef} onSendMessage={handleSendMessage} />
+    <IsResolvingContextProvider>
+      <div className='h-full flex flex-col items-center'>
+        <div className='mb-4 w-full flex gap-4 items-center'>
+          <ChatHeader thread={thread} />
+        </div>
+        <div className='size-full flex justify-center overflow-hidden'>
+          <div className='w-full max-w-[48rem] flex flex-col overflow-hidden'>
+            <div className='flex-1 overflow-y-auto' ref={scrollWindowRef}>
+              <ChatBody messages={messages} />
+            </div>
+            <div>
+              <ChatInput
+                onSendMessage={handleSendMessage}
+                textareaRef={textareaRef}
+                scrollWindowRef={scrollWindowRef}
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </IsResolvingContextProvider>
   )
 }
 

@@ -1,12 +1,16 @@
 import React from 'react'
 import { IconArrowUp } from '../../utils/icons'
+import scrollToBottom from '../../utils/scrollToBottom'
+import { useIsResolvingContext } from '../../context/isResolvingContext'
 
 interface ChatInputProps {
-  textareaRef: React.RefObject<HTMLTextAreaElement | null>
   onSendMessage: (contentBody: string) => Promise<void>
+  textareaRef: React.RefObject<HTMLTextAreaElement | null>
+  scrollWindowRef: React.RefObject<HTMLDivElement | null>
 }
 
-export default function ChatInput({ textareaRef, onSendMessage }: ChatInputProps) {
+export default function ChatInput({ onSendMessage, textareaRef, scrollWindowRef }: ChatInputProps) {
+  const { isResolving, setIsResolving } = useIsResolvingContext()
   const [userPrompt, setUserPrompt] = React.useState('')
 
   /* auto-grow textarea based on content */
@@ -22,19 +26,23 @@ export default function ChatInput({ textareaRef, onSendMessage }: ChatInputProps
   const handleSubmit = async (e?: React.FormEvent<HTMLFormElement>) => {
     e && e.preventDefault()
 
-    // todo: send userPrompt to backend
-    await onSendMessage(userPrompt)
-
     // clear textarea and focus
     setUserPrompt('')
     textareaRef.current?.focus()
+    setIsResolving(true) // flag to prevent multiple submissions
+    scrollToBottom({ targetElement: scrollWindowRef })
+
+    // todo: send userPrompt to backend
+    await onSendMessage(userPrompt)
+    setIsResolving(false)
+    scrollToBottom({ targetElement: scrollWindowRef })
   }
 
   /* handle keyboard shortcuts */
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (!e.shiftKey && e.key === 'Enter') {
       e.preventDefault()
-      if (userPrompt.trim() === '') return // Prevent empty submission or multiple submissions
+      if (userPrompt.trim() === '' || isResolving) return // Prevent empty submission or multiple submissions
       handleSubmit()
     }
   }
@@ -56,7 +64,7 @@ export default function ChatInput({ textareaRef, onSendMessage }: ChatInputProps
         <button
           className='p-2 mt-auto bg-white dark:bg-neutral-600 hover:bg-gray-200 dark:hover:bg-neutral-800 rounded-full transition-[background-color_opacity] disabled:opacity-0'
           type='submit'
-          disabled={userPrompt.trim() === ''}
+          disabled={userPrompt.trim() === '' || isResolving}
         >
           <IconArrowUp className='dark:[&>path]:stroke-neutral-200' size={24} />
         </button>

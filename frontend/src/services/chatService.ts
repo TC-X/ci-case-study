@@ -10,6 +10,9 @@ export async function getChatResponse({ inputContext }: getChatResponseProps) {
     inputContext.map(({ messageContent, messageAuthor }) => `${messageAuthor}: ${messageContent}`).join(' /n/n ')
   )
 
+  // testing time delay
+  await new Promise((resolve) => setTimeout(resolve, 1000))
+
   const response = await fetch('http://localhost:5001/api/chat/', {
     method: 'POST',
     headers: {

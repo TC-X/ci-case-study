@@ -1,6 +1,6 @@
 import React from 'react'
 import { Thread } from '../../types/chat'
-import { IconEllipsisVertical, IconPanelStartUnhide, IconSettings } from '../../utils/icons'
+import { IconEllipsisVertical, IconSettings } from '../../utils/icons'
 import ButtonIcon from '../UI/ButtonIcon'
 import ButtonSidebarHide from '../Buttons/ButtonSidebarHide'
 import { useSidebarContext } from '../../context/SidebarContext'
