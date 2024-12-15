@@ -2,9 +2,10 @@ import React from 'react'
 import Sidebar from '../components/Layout/Sidebar.tsx'
 import Chat from '../components/Chat/Chat.tsx'
 import { useActiveThreadContext } from '../context/activeThreadContext.tsx'
+import { Thread } from '../types/chat.ts'
 
 export default function ChatPage(): React.ReactElement {
-  const threadId: string = window.location.pathname.split('/c/')[1] || '' // we can use react-router in real world scenario
+  let threadId: string = window.location.pathname.split('/c/')[1] || '' // we can use react-router in real world scenario
   const { activeThread, setActiveThread } = useActiveThreadContext()
 
   React.useEffect(() => {
@@ -15,14 +16,15 @@ export default function ChatPage(): React.ReactElement {
       return fakeThreads.find((thread) => thread.threadId === id) || null
     }
 
-    // bail out and redirect to home if thread not found
-    if (findThreadById(threadId) === null) {
-      window.history.pushState(null, '', `/`)
-      return
-    }
+    const thread = findThreadById(threadId)
 
-    // set initial active thread for first load
-    setActiveThread(findThreadById(threadId))
+    // if thread is found, set active thread, otherwise redirect to new chat
+    if (thread) {
+      setActiveThread(thread) // set new active thread
+    } else {
+      setActiveThread(null)
+      window.history.replaceState(null, '', '/') // redirect to new chat
+    }
 
     // watch popstate to handle browser back/forward navigation
     // so active thread can be updated accordingly
@@ -47,7 +49,7 @@ export default function ChatPage(): React.ReactElement {
   )
 }
 
-const fakeThreads = [
+const fakeThreads: Thread[] = [
   {
     threadId: '698ca073-9aa4-4555-a3df-006eda8cf340',
     threadTitle: 'Provide a weekly meal plan for weight loss',
@@ -71,33 +73,5 @@ const fakeThreads = [
   {
     threadId: 'df6a2d23-4fbd-402f-b07c-58fa3e1c6e38',
     threadTitle: 'How to improve my focus and concentration?',
-  },
-]
-
-const fakeMessages = [
-  {
-    messageId: '223c3ca9-3a8a-4941-af02-eddbe000f34a',
-    messageModel: '',
-    messageAuthor: 'user',
-    messageContent: 'Can you provide a weekly meal plan for weight loss?',
-  },
-  {
-    messageId: 'd7e3c030-eec3-4a73-a16b-8190badd35d6',
-    messageModel: 'gpt-4o',
-    messageAuthor: 'assistant',
-    messageContent:
-      'Sure! Here is a weekly meal plan for weight loss: Monday: Breakfast - Oatmeal with berries, Lunch - Grilled chicken salad, Dinner - Baked salmon with steamed vegetables. Tuesday: Breakfast - Greek yogurt with honey, Lunch - Turkey and avocado wrap, Dinner - Quinoa-stuffed bell peppers.',
-  },
-  {
-    messageId: '44141457-131c-4b41-9f0f-bd0afa40d758',
-    messageModel: null,
-    messageAuthor: 'user',
-    messageContent: 'Thank you!',
-  },
-  {
-    messageId: 'e0facfe3-aac5-4f11-b3a3-777ab305baa7',
-    messageModel: 'gpt-4o',
-    messageAuthor: 'assistant',
-    messageContent: "You're welcome! If you have any other questions, feel free to ask.",
   },
 ]
