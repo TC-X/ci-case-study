@@ -5,6 +5,7 @@ import ChatHeader from './ChatHeader'
 import { Message, Thread } from '../../types/chat'
 import { getChatResponse } from '../../services/chatService'
 import { IsResolvingContextProvider } from '../../context/isResolvingContext'
+import scrollToBottom from '../../utils/scrollToBottom'
 
 interface ChatProps {
   thread: Thread | null
@@ -13,18 +14,46 @@ interface ChatProps {
 export default function Chat({ thread }: ChatProps) {
   const [messages, setMessages] = React.useState<Message[]>([])
 
+  // Refs for textarea and scroll window (passing to child components)
   const textareaRef = React.useRef<HTMLTextAreaElement>(null)
   const scrollWindowRef = React.useRef<HTMLDivElement>(null)
 
-  // NOTE: In a real application, I would fetch the message from database/api here
   React.useEffect(() => {
+    // Bail out if no thread is selected (use as a new chat)
     if (!thread) return setMessages([])
 
-    // const chatHistory = await fetchMessages(thread.threadId)
-    const chatHistory = fakeMessages.filter((message) => message.threadId === thread.threadId)
-    setMessages(chatHistory)
-    textareaRef.current?.focus() // refocus on textarea after thread change
+    // Cache messages of the current thread in-memory for faster retrieval
+    // NOTE: In a real application, we would use a more sophisticated caching strategy
+    // - we could cache the messages in the backend, and fetch them when the thread is selected
+    // - we could set limit on the number of messages to cache to prevent memory issues
+    // ** since we have timestamp in the message, we could clear the cache after a certain period of time
+    const cachedMessages = localStorage.getItem(thread.threadId)
+    // console.log('thread.threadId', thread.threadId)
+    // console.log('cachedMessages', cachedMessages)
+
+    if (cachedMessages) {
+      setMessages(JSON.parse(cachedMessages))
+      // console.log('messages from cache:', JSON.parse(cachedMessages))
+    } else {
+      // const chatHistory = await fetchMessages(thread.threadId)
+      const chatHistory = fakeMessages.filter((message) => message.threadId === thread.threadId)
+      setMessages(chatHistory)
+      // console.log('messages from fetching:', thread.threadId)
+    }
+
+    // Post-mount UI behavior
+    // Focus and reset textarea height, and scroll to bottom
+    textareaRef.current?.focus()
+    textareaRef.current!.style.height = 'auto'
+    scrollToBottom({ targetElement: scrollWindowRef, smooth: false }) // Scroll to bottom on initial render
   }, [thread])
+
+  React.useEffect(() => {
+    if (thread && messages.length > 0) {
+      localStorage.setItem(thread.threadId, JSON.stringify(messages))
+      console.log('Cached messages for thread:', thread.threadId, messages)
+    }
+  }, [messages, thread])
 
   const handleSendMessage = async (contentBody: string) => {
     const userMessage: Message = {
