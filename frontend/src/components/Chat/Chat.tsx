@@ -4,29 +4,46 @@ import ChatBody from './ChatBody'
 import ChatHeader from './ChatHeader'
 import { Message, Thread } from '../../types/chat'
 import { getChatResponse } from '../../services/chatService'
-import { IsResolvingContextProvider } from '../../context/isResolvingContext'
+import { ChatResolvingContextProvider } from '../../context/ChatResolvingContext'
 import scrollToBottom from '../../utils/scrollToBottom'
+import { useSidebarContext } from '../../context/SidebarContext'
+import { getUserDevice } from '../../utils/getUserDevice'
+import { useNewChatContext } from '../../context/NewChatContext'
 
 interface ChatProps {
   thread: Thread | null
 }
 
 export default function Chat({ thread }: ChatProps) {
+  // Hooks
+  const { isMobile } = getUserDevice()
+  const { isSidebarHidden, setIsSidebarHidden } = useSidebarContext()
+  const { isNewChat, setIsNewChat } = useNewChatContext()
+
+  // States
   const [messages, setMessages] = React.useState<Message[]>([])
+  const [userPrompt, setUserPrompt] = React.useState('')
 
   // Refs for textarea and scroll window (passing to child components)
   const textareaRef = React.useRef<HTMLTextAreaElement>(null)
   const scrollWindowRef = React.useRef<HTMLDivElement>(null)
 
   React.useEffect(() => {
-    // Bail out if no thread is selected (use as a new chat)
-    if (!thread) return setMessages([])
+    // Pre-mount UI behavior
+    // -- Hide sidebar on thread selection (mobile)
+    if (isMobile && !isSidebarHidden) setIsSidebarHidden(true)
 
-    // Cache messages of the current thread in-memory for faster retrieval
+    if (!thread) {
+      setMessages([]) // Bail out if no thread is selected (use as a new chat)
+      setIsNewChat(true)
+      handlePostMountUIBehavior()
+      return
+    } else {
+      if (isNewChat) setIsNewChat(false)
+    }
+
     // NOTE: In a real application, we would use a more sophisticated caching strategy
-    // - we could cache the messages in the backend, and fetch them when the thread is selected
-    // - we could set limit on the number of messages to cache to prevent memory issues
-    // ** since we have timestamp in the message, we could clear the cache after a certain period of time
+    // ** since we have timestamp in the message, we could set limit or expiration time for the local storage
     const cachedMessages = localStorage.getItem(thread.threadId)
     // console.log('thread.threadId', thread.threadId)
     // console.log('cachedMessages', cachedMessages)
@@ -42,20 +59,35 @@ export default function Chat({ thread }: ChatProps) {
     }
 
     // Post-mount UI behavior
-    // Focus and reset textarea height, and scroll to bottom
-    textareaRef.current?.focus()
-    textareaRef.current!.style.height = 'auto'
-    scrollToBottom({ targetElement: scrollWindowRef, smooth: false }) // Scroll to bottom on initial render
+    // -- Focus and reset textarea height
+    // -- scroll to bottom
+    handlePostMountUIBehavior()
   }, [thread])
 
   React.useEffect(() => {
     if (thread && messages.length > 0) {
       localStorage.setItem(thread.threadId, JSON.stringify(messages))
-      console.log('Cached messages for thread:', thread.threadId, messages)
+      console.log('locolstorage messages:', thread.threadId, messages)
     }
   }, [messages, thread])
 
+  const handlePostMountUIBehavior = () => {
+    // Focus and reset textarea height
+    textareaRef.current?.focus()
+    textareaRef.current!.style.height = 'auto'
+
+    // clear user prompt
+    setUserPrompt('')
+
+    // Scroll to bottom
+    scrollToBottom({ targetElement: scrollWindowRef, smooth: false }) // Scroll to bottom on initial render
+  }
+
   const handleSendMessage = async (contentBody: string) => {
+    // todo(optional):
+    // create a new thread if no thread (new chat)
+    // so user can continue the conversation
+
     const userMessage: Message = {
       threadId: thread?.threadId,
       messageId: crypto.randomUUID(),
@@ -84,7 +116,6 @@ export default function Chat({ thread }: ChatProps) {
       }
 
       // Set the response message in the chat
-      // NOTE: CRUD logic would go here, if not from the backend
       setMessages((prevMessages) => [...prevMessages, responseMessage])
 
       console.log('messages', messages)
@@ -94,7 +125,7 @@ export default function Chat({ thread }: ChatProps) {
   }
 
   return (
-    <IsResolvingContextProvider>
+    <ChatResolvingContextProvider>
       <div className='h-full flex flex-col items-center'>
         <div className='mb-4 w-full flex gap-4 items-center'>
           <ChatHeader thread={thread} />
@@ -109,12 +140,14 @@ export default function Chat({ thread }: ChatProps) {
                 onSendMessage={handleSendMessage}
                 textareaRef={textareaRef}
                 scrollWindowRef={scrollWindowRef}
+                userPrompt={userPrompt}
+                setUserPrompt={setUserPrompt}
               />
             </div>
           </div>
         </div>
       </div>
-    </IsResolvingContextProvider>
+    </ChatResolvingContextProvider>
   )
 }
 

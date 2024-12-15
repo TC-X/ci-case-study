@@ -1,7 +1,7 @@
 import React from 'react'
 import Sidebar from '../components/Layout/Sidebar.tsx'
 import Chat from '../components/Chat/Chat.tsx'
-import { useActiveThreadContext } from '../context/activeThreadContext.tsx'
+import { useActiveThreadContext } from '../context/ActiveThreadContext.tsx'
 import { Thread } from '../types/chat.ts'
 
 export default function ChatPage(): React.ReactElement {
@@ -10,7 +10,7 @@ export default function ChatPage(): React.ReactElement {
 
   React.useEffect(() => {
     // NOTE:
-    // In a real application, I would fetch the thread data from database
+    // In a real application, we would fetch the thread data from database
     // instead of using filtering from fakeThreads
     const findThreadById = (id: string) => {
       return fakeThreads.find((thread) => thread.threadId === id) || null

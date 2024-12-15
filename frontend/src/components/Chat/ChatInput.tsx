@@ -1,17 +1,24 @@
 import React from 'react'
 import { IconArrowUp } from '../../utils/icons'
 import scrollToBottom from '../../utils/scrollToBottom'
-import { useIsResolvingContext } from '../../context/isResolvingContext'
+import { useChatResolvingContext } from '../../context/ChatResolvingContext'
 
 interface ChatInputProps {
   onSendMessage: (contentBody: string) => Promise<void>
   textareaRef: React.RefObject<HTMLTextAreaElement | null>
   scrollWindowRef: React.RefObject<HTMLDivElement | null>
+  userPrompt: string
+  setUserPrompt: React.Dispatch<React.SetStateAction<string>>
 }
 
-export default function ChatInput({ onSendMessage, textareaRef, scrollWindowRef }: ChatInputProps) {
-  const { isResolving, setIsResolving } = useIsResolvingContext()
-  const [userPrompt, setUserPrompt] = React.useState('')
+export default function ChatInput({
+  onSendMessage,
+  textareaRef,
+  scrollWindowRef,
+  userPrompt,
+  setUserPrompt,
+}: ChatInputProps) {
+  const { isResolving, setIsResolving } = useChatResolvingContext()
 
   /* auto-grow textarea based on content */
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {

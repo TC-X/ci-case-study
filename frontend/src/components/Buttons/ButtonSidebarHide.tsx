@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonIcon from '../UI/ButtonIcon'
+import IconButton from '../UI/IconButton'
 import { IconPanelStartHide, IconPanelStartUnhide } from '../../utils/icons'
 import { useSidebarContext } from '../../context/SidebarContext'
 
@@ -8,15 +8,15 @@ interface ButtonSidebarHideProps {
 }
 
 export default function ButtonSidebarHide({ className }: ButtonSidebarHideProps) {
-  const { isHidden, setIsHidden } = useSidebarContext()
+  const { isSidebarHidden, setIsSidebarHidden } = useSidebarContext()
 
   return (
-    <ButtonIcon className={className} handleOnClick={() => setIsHidden(!isHidden)}>
-      {isHidden ? (
+    <IconButton className={className} handleOnClick={() => setIsSidebarHidden(!isSidebarHidden)}>
+      {isSidebarHidden ? (
         <IconPanelStartUnhide className='dark:[&>path]:stroke-neutral-200' size={24} />
       ) : (
         <IconPanelStartHide className='dark:[&>path]:stroke-neutral-200' size={24} />
       )}
-    </ButtonIcon>
+    </IconButton>
   )
 }

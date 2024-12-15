@@ -1,7 +1,7 @@
 import React from 'react'
 import { Thread } from '../../types/chat'
 import { IconEllipsisVertical, IconSettings } from '../../utils/icons'
-import ButtonIcon from '../UI/ButtonIcon'
+import IconButton from '../UI/IconButton'
 import ButtonSidebarHide from '../Buttons/ButtonSidebarHide'
 import { useSidebarContext } from '../../context/SidebarContext'
 import ButtonNewChat from '../Buttons/ButtonNewChat'
@@ -13,18 +13,18 @@ interface ChatHeaderProps {
 
 export default function ChatHeader({ thread }: ChatHeaderProps) {
   const { isMobile } = getUserDevice()
-  const { isHidden, setIsHidden } = useSidebarContext()
+  const { isSidebarHidden, setIsSidebarHidden } = useSidebarContext()
 
   // Hide the sidebar on mobile
   React.useEffect(() => {
-    if (isMobile) setIsHidden(true)
-  }, [isMobile, setIsHidden])
+    if (isMobile) setIsSidebarHidden(true)
+  }, [isMobile, setIsSidebarHidden])
 
   return (
     <>
       <div
         className={`flex max-lg:gap-3
-          ${isHidden ? 'visible' : 'lg:hidden'}
+          ${isSidebarHidden ? 'visible' : 'lg:hidden'}
         `}
       >
         <ButtonSidebarHide />
@@ -34,12 +34,12 @@ export default function ChatHeader({ thread }: ChatHeaderProps) {
         <h1 className='font-bold text-xl line-clamp-1 break-all'>{thread?.threadTitle || 'New Chat'}</h1>
       </div>
       <div className='ms-auto flex max-lg:gap-3'>
-        <ButtonIcon handleOnClick={() => alert('Coming soon!')}>
+        <IconButton handleOnClick={() => alert('Coming soon!')}>
           <IconSettings className='dark:[&>path]:stroke-neutral-200' size={24} />
-        </ButtonIcon>
-        <ButtonIcon handleOnClick={() => alert('Coming soon!')}>
+        </IconButton>
+        <IconButton handleOnClick={() => alert('Coming soon!')}>
           <IconEllipsisVertical className='dark:[&>path]:stroke-neutral-200' size={24} />
-        </ButtonIcon>
+        </IconButton>
       </div>
     </>
   )

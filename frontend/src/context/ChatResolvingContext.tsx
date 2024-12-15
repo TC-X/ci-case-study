@@ -1,14 +1,14 @@
 import React from 'react'
 
-interface IsResolvingContextType {
+interface ChatResolvingContextType {
   isResolving: boolean
   setIsResolving: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export const Context = React.createContext({} as IsResolvingContextType)
-export const useIsResolvingContext = () => React.useContext(Context)
+export const Context = React.createContext({} as ChatResolvingContextType)
+export const useChatResolvingContext = () => React.useContext(Context)
 
-export function IsResolvingContextProvider({ children }: { children: React.ReactNode }) {
+export function ChatResolvingContextProvider({ children }: { children: React.ReactNode }) {
   const [isResolving, setIsResolving] = React.useState<boolean>(false)
 
   const value = {

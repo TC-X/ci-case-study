@@ -1,6 +1,6 @@
 import React from 'react'
 import { Thread } from '../types/chat'
-import { useActiveThreadContext } from '../context/activeThreadContext'
+import { useActiveThreadContext } from '../context/ActiveThreadContext'
 
 interface ThreadListItemProps {
   thread: Thread

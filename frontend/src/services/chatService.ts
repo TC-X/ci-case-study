@@ -7,8 +7,12 @@ interface getChatResponseProps {
 export async function getChatResponse({ inputContext }: getChatResponseProps) {
   // NOTE: input context pre-processing logic would go here
   const normalizedInputContext: string = JSON.stringify(
-    inputContext.map(({ messageContent, messageAuthor }) => `${messageAuthor}: ${messageContent}`).join(' /n/n ')
+    inputContext
+      .map(({ messageContent, messageAuthor }) => `${messageAuthor.toUpperCase()} says: ${messageContent}`)
+      .join(' \n\n ')
   )
+
+  console.log('input context fed to LLM:', normalizedInputContext)
 
   // testing time delay
   await new Promise((resolve) => setTimeout(resolve, 1000))

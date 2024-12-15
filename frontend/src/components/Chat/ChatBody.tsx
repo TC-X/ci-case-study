@@ -1,7 +1,7 @@
 import React from 'react'
 import { Message } from '../../types/chat'
 import ChatMessage from './ChatMessage/ChatMessage'
-import { useIsResolvingContext } from '../../context/isResolvingContext'
+import { useChatResolvingContext } from '../../context/ChatResolvingContext'
 import ChatMessageSkeleton from '../UI/ChatMessageSkeleton'
 
 interface ChatBodyProps {
@@ -9,7 +9,7 @@ interface ChatBodyProps {
 }
 
 export default function ChatBody({ messages }: ChatBodyProps) {
-  const { isResolving } = useIsResolvingContext()
+  const { isResolving } = useChatResolvingContext()
 
   return (
     <div className='min-h-full min-w-full pb-10 max-lg:pb-6 prose prose-neutral prose-code:whitespace-break-spaces dark:prose-invert contain-paint'>
