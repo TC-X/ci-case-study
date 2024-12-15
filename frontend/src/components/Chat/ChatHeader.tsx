@@ -17,17 +17,19 @@ export default function ChatHeader({ thread }: ChatHeaderProps) {
 
   // Hide the sidebar on mobile
   React.useEffect(() => {
-    isMobile && setIsHidden(true)
+    if (isMobile) setIsHidden(true)
   }, [isMobile, setIsHidden])
 
   return (
     <>
-      {(isHidden || isMobile) && (
-        <div className='flex max-lg:gap-3'>
-          <ButtonSidebarHide />
-          <ButtonNewChat />
-        </div>
-      )}
+      <div
+        className={`flex max-lg:gap-3
+          ${isHidden ? 'visible' : 'lg:hidden'}
+        `}
+      >
+        <ButtonSidebarHide />
+        <ButtonNewChat />
+      </div>
       <div>
         <h1 className='font-bold text-xl line-clamp-1 break-all'>{thread?.threadTitle || 'New Chat'}</h1>
       </div>

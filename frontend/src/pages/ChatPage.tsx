@@ -10,7 +10,7 @@ export default function ChatPage(): React.ReactElement {
 
   React.useEffect(() => {
     // NOTE:
-    // In a real-world scenario, we would fetch the thread data from database
+    // In a real application, we would fetch the thread data from database
     // instead of using filtering from fakeThreads
     const findThreadById = (id: string) => {
       return fakeThreads.find((thread) => thread.threadId === id) || null
@@ -56,7 +56,7 @@ const fakeThreads: Thread[] = [
   },
   {
     threadId: '26f68556-0ed5-4930-b650-a11095f30a33',
-    threadTitle: 'What are the best exercises for a beginner?',
+    threadTitle: 'Best exercises for a beginner',
   },
   {
     threadId: '3737f8cf-2051-4641-97cb-4368b3b132ff',

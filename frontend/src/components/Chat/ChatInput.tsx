@@ -2,11 +2,11 @@ import React from 'react'
 import { IconArrowUp } from '../../utils/icons'
 
 interface ChatInputProps {
+  textareaRef: React.RefObject<HTMLTextAreaElement | null>
   onSendMessage: (contentBody: string) => Promise<void>
 }
 
-export default function ChatInput({ onSendMessage }: ChatInputProps) {
-  const textareaRef = React.useRef<HTMLTextAreaElement>(null)
+export default function ChatInput({ textareaRef, onSendMessage }: ChatInputProps) {
   const [userPrompt, setUserPrompt] = React.useState('')
 
   /* auto-grow textarea based on content */
@@ -41,7 +41,7 @@ export default function ChatInput({ onSendMessage }: ChatInputProps) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className='p-2 flex justify-between bg-gray-100 dark:bg-neutral-700 gap-4 rounded-lg shadow-[0_0_24px_0_#00000004] cursor-text'>
+      <div className='p-2 flex justify-between bg-gray-100 dark:bg-neutral-700 gap-4 rounded-3xl shadow-[0_0_24px_0_#00000004] cursor-text'>
         <textarea
           className='p-2 w-full max-h-[30dvh] bg-transparent border-none focus:outline-none placeholder:text-gray-400 dark:placeholder:text-neutral-400 resize-none'
           placeholder='Ask anything'
@@ -54,7 +54,7 @@ export default function ChatInput({ onSendMessage }: ChatInputProps) {
           autoFocus
         />
         <button
-          className='p-2 mt-auto hover:bg-white dark:hover:bg-neutral-600 rounded-md transition-[background-color_opacity] disabled:opacity-0'
+          className='p-2 mt-auto bg-white dark:bg-neutral-600 hover:bg-gray-200 dark:hover:bg-neutral-800 rounded-full transition-[background-color_opacity] disabled:opacity-0'
           type='submit'
           disabled={userPrompt.trim() === ''}
         >

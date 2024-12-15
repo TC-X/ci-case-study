@@ -4,8 +4,10 @@ export interface Thread {
 }
 
 export interface Message {
+  threadId: string | undefined
   messageId: string
-  messageModel: string | null
+  messageModel: string | undefined
   messageAuthor: string
   messageContent: string
+  messageTimestamp: string
 }
