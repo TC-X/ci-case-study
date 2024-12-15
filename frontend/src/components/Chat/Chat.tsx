@@ -13,7 +13,7 @@ export default function Chat({ thread }: ChatProps) {
   const textareaRef = React.useRef<HTMLTextAreaElement>(null)
   const [messages, setMessages] = React.useState<Message[]>([])
 
-  // NOTE: In a real application, we would fetch the message from database/api here
+  // NOTE: In a real application, I would fetch the message from database/api here
   React.useEffect(() => {
     if (!thread) return setMessages([])
 
@@ -36,8 +36,26 @@ export default function Chat({ thread }: ChatProps) {
     setMessages((prevMessages) => [...prevMessages, userMessage])
 
     try {
-      const responseMessage = await getChatResponse({ inputContext: messages })
-      setMessages((prevMessages) => [...prevMessages, responseMessage]) // append response message
+      const inputContext = [...messages, userMessage] // prevent batched state updates (setMessages) causing outdated messages
+      const response = await getChatResponse({ inputContext })
+
+      console.log(response)
+
+      // NOTE: mapping api response with type Message here, if not from the backend
+      const responseMessage: Message = {
+        threadId: thread?.threadId,
+        messageId: crypto.randomUUID(),
+        messageModel: response.response_model,
+        messageAuthor: response.response_author,
+        messageContent: response.response_content,
+        messageTimestamp: new Date().toISOString(),
+      }
+
+      // Set the response message in the chat
+      // NOTE: CRUD logic would go here, if not from the backend
+      setMessages((prevMessages) => [...prevMessages, responseMessage])
+
+      console.log('messages', messages)
     } catch (error) {
       console.error('Failed to send message:', error)
     }

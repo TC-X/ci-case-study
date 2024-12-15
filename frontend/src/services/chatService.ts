@@ -5,19 +5,29 @@ interface getChatResponseProps {
 }
 
 export async function getChatResponse({ inputContext }: getChatResponseProps) {
-  const response = await fetch('http://localhost:3001/api/chat', {
+  // NOTE: input context pre-processing logic would go here
+  const normalizedInputContext: string = JSON.stringify(
+    inputContext.map(({ messageContent, messageAuthor }) => `${messageAuthor}: ${messageContent}`).join(' /n/n ')
+  )
+
+  const response = await fetch('http://localhost:5001/api/chat/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ inputContext }),
+    body: normalizedInputContext,
   })
 
   if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`)
+    throw new Error(`HTTP error status: ${response.status}`)
   }
 
-  const data = await response.json()
-
-  return data
+  try {
+    const data = await response.json()
+    console.log('response data:', data)
+    return data
+  } catch (err) {
+    console.error('Error parsing response:', err)
+    throw err
+  }
 }
