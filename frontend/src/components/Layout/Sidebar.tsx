@@ -15,10 +15,10 @@ export default function Sidebar({ threads }: SidebarProps) {
   return (
     <div
       className={`
-      p-4 size-full flex flex-col transition-[max-width_padding_margin] duration-150 ease-in-out
+      p-4 size-full flex flex-col transition-[width_padding_margin] duration-150 ease-in-out
       bg-gray-100 dark:bg-neutral-700 rounded-xl overflow-hidden
       max-lg:fixed max-lg:left-0 max-lg:top-0 max-lg:rounded-none max-lg:shadow-lg max-lg:z-10
-      ${isSidebarHidden ? 'max-w-0 px-0 me-0' : 'max-w-72 me-4'}
+      ${isSidebarHidden ? 'w-0 px-0 me-0' : 'w-72 me-4'}
     `}
     >
       <div className='flex gap-3 justify-between'>

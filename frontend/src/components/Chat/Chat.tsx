@@ -38,15 +38,11 @@ export default function Chat({ thread }: ChatProps) {
       setIsNewChat(true)
       handlePostMountUIBehavior()
       return
-    } else {
-      if (isNewChat) setIsNewChat(false)
     }
 
     // NOTE: In a real application, we would use a more sophisticated caching strategy
     // ** since we have timestamp in the message, we could set limit or expiration time for the local storage
     const cachedMessages = localStorage.getItem(thread.threadId)
-    // console.log('thread.threadId', thread.threadId)
-    // console.log('cachedMessages', cachedMessages)
 
     if (cachedMessages) {
       setMessages(JSON.parse(cachedMessages))
@@ -58,14 +54,12 @@ export default function Chat({ thread }: ChatProps) {
       // console.log('messages from fetching:', thread.threadId)
     }
 
-    // Post-mount UI behavior
-    // -- Focus and reset textarea height
-    // -- scroll to bottom
     handlePostMountUIBehavior()
+    if (isNewChat) setIsNewChat(false) // fallback the flag to false
   }, [thread])
 
   React.useEffect(() => {
-    if (thread && messages.length > 0) {
+    if (thread) {
       localStorage.setItem(thread.threadId, JSON.stringify(messages))
       console.log('locolstorage messages:', thread.threadId, messages)
     }
