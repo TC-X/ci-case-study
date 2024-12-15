@@ -2,7 +2,7 @@ import React from 'react'
 import Sidebar from '../components/Layout/Sidebar.tsx'
 import Chat from '../components/Chat/Chat.tsx'
 import { useActiveThreadContext } from '../context/ActiveThreadContext.tsx'
-import { Thread } from '../types/chat.ts'
+import { mockThreads } from '../mocks/threadData.ts'
 
 export default function ChatPage(): React.ReactElement {
   let threadId: string = window.location.pathname.split('/c/')[1] || '' // we can use react-router in real world scenario
@@ -13,7 +13,7 @@ export default function ChatPage(): React.ReactElement {
     // In a real application, we would fetch the thread data from database
     // instead of using filtering from fakeThreads
     const findThreadById = (id: string) => {
-      return fakeThreads.find((thread) => thread.threadId === id) || null
+      return mockThreads.find((thread) => thread.threadId === id) || null
     }
 
     const thread = findThreadById(threadId)
@@ -40,7 +40,7 @@ export default function ChatPage(): React.ReactElement {
   return (
     <div className='w-full flex'>
       <aside>
-        <Sidebar threads={fakeThreads} />
+        <Sidebar threads={mockThreads} />
       </aside>
       <main className='w-full flex-1'>
         <Chat thread={activeThread} />
@@ -48,30 +48,3 @@ export default function ChatPage(): React.ReactElement {
     </div>
   )
 }
-
-const fakeThreads: Thread[] = [
-  {
-    threadId: '698ca073-9aa4-4555-a3df-006eda8cf340',
-    threadTitle: 'Provide a weekly meal plan for weight loss',
-  },
-  {
-    threadId: '26f68556-0ed5-4930-b650-a11095f30a33',
-    threadTitle: 'Best exercises for a beginner',
-  },
-  {
-    threadId: '3737f8cf-2051-4641-97cb-4368b3b132ff',
-    threadTitle: 'How to improve my sleep?',
-  },
-  {
-    threadId: 'dd8c1bbd-b22b-42c9-ba10-2a60e0aed368',
-    threadTitle: 'What are the best ways to reduce stress?',
-  },
-  {
-    threadId: '7d639d5d-51a5-4556-bf6d-f2e07ad02be1',
-    threadTitle: 'How to start a meditation practice?',
-  },
-  {
-    threadId: 'df6a2d23-4fbd-402f-b07c-58fa3e1c6e38',
-    threadTitle: 'How to improve my focus and concentration?',
-  },
-]

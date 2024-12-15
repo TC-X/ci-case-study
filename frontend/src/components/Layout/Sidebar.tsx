@@ -4,13 +4,20 @@ import ThreadList from '../ThreadList'
 import { useSidebarContext } from '../../context/SidebarContext'
 import ButtonSidebarHide from '../Buttons/ButtonSidebarHide'
 import ButtonNewChat from '../Buttons/ButtonNewChat'
+import { getUserDevice } from '../../utils/getUserDevice'
 
 interface SidebarProps {
   threads: Thread[]
 }
 
 export default function Sidebar({ threads }: SidebarProps) {
-  const { isSidebarHidden } = useSidebarContext()
+  const { isMobile } = getUserDevice()
+  const { isSidebarHidden, setIsSidebarHidden } = useSidebarContext()
+
+  // Hide sidebar on mobile by default
+  React.useEffect(() => {
+    if (isMobile && !isSidebarHidden) setIsSidebarHidden(true)
+  }, [])
 
   return (
     <div
