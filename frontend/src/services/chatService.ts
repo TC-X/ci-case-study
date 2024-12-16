@@ -6,12 +6,18 @@ interface getChatResponseProps {
   inputContext: Message[]
 }
 
+interface NormalizedInputContextType {
+  author: string
+  content: string
+}
+
 export async function getChatResponse({ inputContext }: getChatResponseProps) {
   // NOTE: input context pre-processing/optimization logic would go here
-  const normalizedInputContext: string = JSON.stringify(
-    inputContext
-      .map(({ messageContent, messageAuthor }) => `${messageAuthor.toUpperCase()} says: ${messageContent}`)
-      .join(' \n\n ')
+  const normalizedInputContext: NormalizedInputContextType[] = inputContext.map(
+    ({ messageAuthor, messageContent }) => ({
+      author: messageAuthor,
+      content: messageContent,
+    })
   )
 
   console.log('Input context fed to llm (backend):\n', normalizedInputContext)
@@ -24,7 +30,7 @@ export async function getChatResponse({ inputContext }: getChatResponseProps) {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: normalizedInputContext,
+    body: JSON.stringify(normalizedInputContext),
   })
 
   if (!response.ok) {
