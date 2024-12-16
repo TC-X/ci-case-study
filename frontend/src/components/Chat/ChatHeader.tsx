@@ -18,7 +18,7 @@ export default function ChatHeader({ thread }: ChatHeaderProps) {
     <>
       <div
         className={`flex max-lg:gap-3
-          ${isSidebarHidden ? 'visible' : 'lg:hidden'}
+          ${isSidebarHidden ? 'visible' : 'md:hidden'}
         `}
       >
         <ButtonSidebarHide />

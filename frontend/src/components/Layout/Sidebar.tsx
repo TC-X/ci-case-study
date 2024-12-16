@@ -26,7 +26,8 @@ export default function Sidebar({ threads }: SidebarProps) {
       className={`
       p-4 h-full max-w-full flex flex-col transition-[width_padding_margin] duration-150 ease-in-out
       bg-gray-100 dark:bg-neutral-700 rounded-xl overflow-hidden
-      max-lg:fixed max-lg:left-0 max-lg:top-0 max-lg:rounded-none max-lg:shadow-lg max-lg:z-10
+      max-md:max-w-full max-md:fixed max-md:left-0 max-md:top-0 max-md:rounded-none max-md:shadow-lg max-md:z-10
+      max-lg:max-w-56
       ${isSidebarHidden ? 'w-0 px-0 me-0' : 'w-72 me-4'}
     `}
     >
