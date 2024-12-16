@@ -2,7 +2,6 @@ import React from 'react'
 import { IconNewChat } from '../../utils/icons'
 import IconButton from '../UI/IconButton'
 import { useActiveThreadContext } from '../../context/ActiveThreadContext'
-import { useNewChatContext } from '../../context/NewChatContext'
 
 interface ButtonNewChatProps {
   className?: string

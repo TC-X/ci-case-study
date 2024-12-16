@@ -2,27 +2,50 @@ import { Thread } from '../types/chat'
 
 export const mockThreads: Thread[] = [
   {
-    threadId: '698ca073-9aa4-4555-a3df-006eda8cf340',
-    threadTitle: 'Provide a weekly meal plan for weight loss',
+    threadId: 'a1b2c3d4-e5f6-7890-abcd-1234567890ab',
+    threadTitle: 'Weekly Meal Plan for Weight Loss',
   },
   {
-    threadId: '26f68556-0ed5-4930-b650-a11095f30a33',
-    threadTitle: 'Best exercises for a beginner',
+    threadId: 'b2c3d4e5-f6a7-8901-bcde-2345678901bc',
+    threadTitle: 'Best Exercises for a Beginner',
   },
   {
-    threadId: '3737f8cf-2051-4641-97cb-4368b3b132ff',
-    threadTitle: 'How to improve my sleep?',
+    threadId: 'c3d4e5f6-a7b8-9012-cdef-3456789012cd',
+    threadTitle: 'Introduction to Quantum Computing',
   },
   {
-    threadId: 'dd8c1bbd-b22b-42c9-ba10-2a60e0aed368',
-    threadTitle: 'What are the best ways to reduce stress?',
+    threadId: 'd4e5f6a7-b8c9-0123-def0-4567890123de',
+    threadTitle: 'Effective Digital Marketing Strategies for E-commerce',
   },
   {
-    threadId: '7d639d5d-51a5-4556-bf6d-f2e07ad02be1',
-    threadTitle: 'How to start a meditation practice?',
+    threadId: 'e5f6a7b8-c9d0-1234-ef01-5678901234ef',
+    threadTitle: 'Sustainable Urban Planning Solutions',
+  },
+  // Thread 6: Blockchain Technology in Finance
+  {
+    threadId: 'f6a7b8c9-d0e1-2345-fg12-6789012345gh',
+    threadTitle: 'Blockchain Technology in Finance',
+  },
+  // Thread 7: Advances in Renewable Energy Technologies
+  {
+    threadId: 'g7b8c9d0-e1f2-3456-gh23-7890123456hi',
+    threadTitle: 'Advances in Renewable Energy Technologies',
+  },
+  // Thread 8: Impact of Artificial Intelligence on Healthcare
+  {
+    threadId: 'h8c9d0e1-f2g3-4567-hi34-8901234567ij',
+    threadTitle: 'Impact of Artificial Intelligence on Healthcare',
   },
   {
-    threadId: 'df6a2d23-4fbd-402f-b07c-58fa3e1c6e38',
-    threadTitle: 'How to improve my focus and concentration?',
+    threadId: 'f6g7h8i9-j0k1-2345-lmno-6789012345fg',
+    threadTitle: 'Artificial Intelligence in Healthcare',
+  },
+  {
+    threadId: 'g7h8i9j0-k1l2-3456-mnop-7890123456gh',
+    threadTitle: 'Renewable Energy Solutions for Urban Areas',
+  },
+  {
+    threadId: 'h8i9j0k1-l2m3-4567-nopq-8901234567hi',
+    threadTitle: 'Best Practices for Remote Work',
   },
 ]
