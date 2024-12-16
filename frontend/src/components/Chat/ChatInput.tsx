@@ -22,41 +22,48 @@ export default function ChatInput({
   const { isResolving, setIsResolving } = useChatResolvingContext()
 
   /* auto-grow textarea based on content */
-  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const { value } = e.currentTarget
+  const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { value } = event.currentTarget
     setUserPrompt(value)
 
-    e.currentTarget.style.height = 'auto' // Reset height
-    e.currentTarget.style.height = `${e.currentTarget.scrollHeight}px` // Dynamically adjust height
+    event.currentTarget.style.height = 'auto' // Reset height
+    event.currentTarget.style.height = `${event.currentTarget.scrollHeight}px` // Dynamically adjust height
   }
 
-  /* handle form submission */
-  const handleSubmit = async (e?: React.FormEvent<HTMLFormElement>) => {
-    e && e.preventDefault()
-
-    // clear textarea and focus
+  const formSubmission = async () => {
+    // post-submit operations
     setUserPrompt('')
     textareaRef.current?.focus()
     setIsResolving(true) // flag to prevent multiple submissions
     scrollToBottom({ targetElement: scrollWindowRef })
 
-    // todo: send userPrompt to backend
+    // send user prompt to backend
     await onSendMessage(userPrompt)
     setIsResolving(false)
+
+    // scroll to bottom after receiving AI response
     scrollToBottom({ targetElement: scrollWindowRef })
   }
 
+  /* handle form submission */
+  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    if (userPrompt.trim() === '' || isResolving) return // Prevent empty submission or multiple submissions
+    formSubmission()
+  }
+
   /* handle keyboard shortcuts */
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (!e.shiftKey && e.key === 'Enter') {
-      e.preventDefault()
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    // trigger form submission on Enter key
+    if (!event.shiftKey && event.key === 'Enter') {
+      event.preventDefault()
       if (userPrompt.trim() === '' || isResolving) return // Prevent empty submission or multiple submissions
-      handleSubmit()
+      formSubmission()
     }
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleFormSubmit}>
       <div className='p-2 flex justify-between bg-gray-100 dark:bg-neutral-700 gap-4 rounded-3xl shadow-[0_0_24px_0_#00000004] cursor-text'>
         <textarea
           className='p-2 w-full max-h-[30dvh] bg-transparent border-none focus:outline-none placeholder:text-gray-400 dark:placeholder:text-neutral-400 resize-none'

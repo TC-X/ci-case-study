@@ -4,11 +4,6 @@
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "baseUrl": "src",
-    "paths": {
-      "@components/*": ["components/*"],
-      "@hooks/*": ["hooks/*"],
-      "@services/*": ["services/*"]
-    }
+    "baseUrl": "src"
   }
 }
