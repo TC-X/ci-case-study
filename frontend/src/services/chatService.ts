@@ -1,6 +1,6 @@
 import { Message } from '../types/chat'
 
-const BACKEND_ENDPOINT = 'http://localhost:56781/api/chat/'
+const BACKEND_ENDPOINT = 'http://localhost:5678/api/chat/'
 
 interface getChatResponseProps {
   inputContext: Message[]
