@@ -9,6 +9,8 @@ This project consists of:
 
 **5-Day Roadmap**: I used a simple Notion Kanban board to break down tasks into actionable steps with clear due dates, helping me stay organized and meet the 5-day challenge. You can check out the [C[i] Chatbot Case Study – 5 days Roadmap Notion Page](https://www.notion.so/C-i-Chatbot-Case-Study-5-days-Roadmap-15c0a7d1869280dcbc9cce1cc7d7db73?pvs=4) to see how the plan was laid out.
 
+---
+
 ## Features & Highlights
 
 ### Core Requirements (As Per Assignment)
@@ -26,8 +28,6 @@ This project consists of:
 - **Markdown Support**: Responses are rendered with markdown for richer formatting.
 - **Preventive Logic & Loading Skeleton**: Provides user feedback while waiting for responses.
 - **Local Storage Persistence (Frontend Only)**: Conversation histories are stored on the client side for convenience.
-
-This application was developed over a focused 5-day period, following a simple roadmap that prioritized core assignment requirements and then added extra features within time constraints.
 
 ---
 
@@ -115,8 +115,6 @@ cd ci-case-study
    ```bash
    python -m venv venv
    source venv/bin/activate       # On Windows: venv\Scripts\activate
-
-   # If successful, your terminal prompt will now show (venv) to indicate the virtual environment is active.
    ```
 
 3. **Install dependencies**:
@@ -165,8 +163,8 @@ By default, the frontend expects the backend at `http://localhost:5678/api/`. Ad
 
 - **Open the frontend** at [http://localhost:3000](http://localhost:3000).
 - **Send Messages**: Type into the input field and click send or press enter.
-- **View Multiple Threads**: Use the sidebar to switch between preset threads. New thread creation isn’t fully implemented, but the preset threads will store and show their own messages.
-- **Markdown Formatting**: The backend responses can include basic markdown formatting, which the frontend renders appropriately.
+- **View Multiple Threads**: Use the sidebar to switch between preset threads.
+- **Markdown Formatting**: The backend responses can include basic markdown formatting.
 
 ---
 
@@ -183,17 +181,37 @@ By default, the frontend expects the backend at `http://localhost:5678/api/`. Ad
    curl -X POST "http://localhost:5678/api/chat/" -H "Content-Type: application/json" -d '{"message": "Hello World"}'
    ```
 3. **CORS / 405 Errors**  
-   Update `FRONTEND_URL` in `backend/app/main.py` to match your frontend’s origin. Restart the backend if changed.
+   Update `FRONTEND_URL` in `backend/app/main.py` to match your frontend’s origin.
 
 ### Frontend
 
 1. **Backend Port Changes**  
    If not using `port 5678`, update `BACKEND_ENDPOINT` in `frontend/services/chatService.ts`.
 
-If the issue persists, please don't hesitate to reach out to me at:
+If the issue persists, please don't hesitate to reach out:
 
 - Phone: 306-881-4446
 - Email: [tc.thitiwat@gmail.com](mailto:tc.thitiwat@gmail.com)
+
+---
+
+## Development Approach & Philosophy
+
+Throughout the project, I focused on building a maintainable and scalable codebase by following these principles:
+
+- **Reusable Components**: UI elements were split into smaller, reusable components to promote code reusability and easier future refactoring.
+- **Clear File Structure**: I curated a directory and file structure that is not overly complicated, but is still easy to navigate, understand, and scale.
+- **Consistent Naming Conventions**:
+  - **PascalCase**: Components, Context, Types
+  - **camelCase**: Functions, Variables, Hooks
+  - **SCREAMING_SNAKE_CASE**: Constants
+  - **snake_case**: Python backend modules and variables
+- **Scoped State Management**: I preferred using scoped context providers for localized state management to prevent unnecessary re-renders and limit prop drilling to a maximum of two levels.
+- **Minimal External Libraries**: Only essential libraries were integrated to maintain control over behavior and prevent complexity from external overrides.
+- **Hooks Usage**: Hooks were introduced only where necessary and combined thoughtfully to keep the codebase clean and easy to maintain.
+- **Styling**: Built desktop-first with TailwindCSS. The approach was to provide a flexible, user-centric UI inspired by familiar chat interfaces (like ChatGPT), while ensuring specificity in styling to avoid accidental overrides.
+
+These guidelines helped create a codebase that is easy to navigate, extend, and maintain, while allowing for future growth as requirements evolve.
 
 ---
 
