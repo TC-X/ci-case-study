@@ -6,10 +6,9 @@ export interface getUserDeviceProps {
   isDesktop: boolean
 }
 
-/**
+/*
  * Get user device type based on request headers or window width. (Server or client)
- * @param request - Request object from server-side.
- * @returns UserDevice object with isMobile, isTablet, and isDesktop booleans.
+ * if request is passed-in, then get user agent from headers.
  */
 export function getUserDevice(request?: Request): getUserDeviceProps {
   // Server-side: Request passed-in, then get user agent from headers.

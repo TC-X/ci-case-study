@@ -18,6 +18,7 @@ export default function ChatInput({
   userPrompt,
   setUserPrompt,
 }: ChatInputProps) {
+  /* States */
   const { isResolving, setIsResolving } = useChatResolvingContext()
 
   /* auto-grow textarea based on content */

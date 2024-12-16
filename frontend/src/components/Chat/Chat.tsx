@@ -2,26 +2,29 @@ import React from 'react'
 import ChatInput from './ChatInput'
 import ChatBody from './ChatBody'
 import ChatHeader from './ChatHeader'
-import { Message, Thread } from '../../types/chat'
-import { getChatResponse } from '../../services/chatService'
-import { ChatResolvingContextProvider } from '../../context/ChatResolvingContext'
 import scrollToBottom from '../../utils/scrollToBottom'
 import useChatMessages from '../../hooks/useChatMessages'
+import { useSendMessage } from '../../hooks/useSendMessage'
+import { ChatResolvingContextProvider } from '../../context/ChatResolvingContext'
+import { Thread } from '../../types/chat'
 
 interface ChatProps {
   thread: Thread | null
 }
 
 export default function Chat({ thread }: ChatProps) {
-  // States
-  const { messages, setMessages } = useChatMessages({ thread })
+  /* States */
   const [userPrompt, setUserPrompt] = React.useState('')
 
-  // Refs for textarea and scroll window (passing to child components)
-  const textareaRef = React.useRef<HTMLTextAreaElement>(null)
-  const scrollWindowRef = React.useRef<HTMLDivElement>(null)
+  /* Hooks */
+  const { messages, setMessages } = useChatMessages({ thread })
+  const { handleSendMessage } = useSendMessage({ thread, messages, setMessages })
 
-  // Post-mount UI effects: focusing textarea, resetting prompt, and scrolling
+  /* Refs */
+  const textareaRef = React.useRef<HTMLTextAreaElement>(null) // passing to children
+  const scrollWindowRef = React.useRef<HTMLDivElement>(null) // passing to children
+
+  /* UI control: handle thread change */
   React.useEffect(() => {
     if (textareaRef.current) {
       textareaRef.current.focus()
@@ -31,47 +34,10 @@ export default function Chat({ thread }: ChatProps) {
     scrollToBottom({ targetElement: scrollWindowRef, smooth: false })
   }, [thread])
 
-  // Smooth scroll to bottom on new message
+  /* UI control: handle new message */
   React.useEffect(() => {
     scrollToBottom({ targetElement: scrollWindowRef, smooth: true })
   }, [messages])
-
-  const handleSendMessage = async (contentBody: string) => {
-    // todo(optional):
-    // create a new thread if no thread (new chat)
-    // so user can continue the conversation
-
-    const userMessage: Message = {
-      threadId: thread?.threadId,
-      messageId: crypto.randomUUID(),
-      messageModel: '',
-      messageAuthor: 'user',
-      messageContent: contentBody,
-      messageTimestamp: new Date().toISOString(),
-    }
-
-    setMessages((prevMessages) => [...prevMessages, userMessage])
-
-    try {
-      const inputContext = [...messages, userMessage] // prevent batched state updates (setMessages) causing outdated messages
-      const response = await getChatResponse({ inputContext })
-
-      // NOTE: mapping api response with type Message here, if not from the backend
-      const responseMessage: Message = {
-        threadId: thread?.threadId,
-        messageId: crypto.randomUUID(),
-        messageModel: response.response_model,
-        messageAuthor: response.response_author,
-        messageContent: response.response_content,
-        messageTimestamp: new Date().toISOString(),
-      }
-
-      // Set the response message in the chat
-      setMessages((prevMessages) => [...prevMessages, responseMessage])
-    } catch (error) {
-      console.error('Failed to send message:', error)
-    }
-  }
 
   return (
     <ChatResolvingContextProvider>

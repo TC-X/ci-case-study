@@ -5,8 +5,9 @@ import { useActiveThreadContext } from '../context/ActiveThreadContext.tsx'
 import { mockThreads } from '../mocks/threadData.ts'
 
 export default function ChatPage(): React.ReactElement {
-  let threadId: string = window.location.pathname.split('/c/')[1] || '' // we can use react-router in real world scenario
   const { activeThread, setActiveThread } = useActiveThreadContext()
+
+  const threadId: string = window.location.pathname.split('/c/')[1] || '' // could be simpler with react-router
 
   React.useEffect(() => {
     // NOTE:

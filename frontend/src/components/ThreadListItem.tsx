@@ -7,6 +7,7 @@ interface ThreadListItemProps {
 }
 
 export default function ThreadListItem({ thread }: ThreadListItemProps) {
+  /* States */
   const { activeThread, setActiveThread } = useActiveThreadContext()
 
   const handleThreadClick = () => {

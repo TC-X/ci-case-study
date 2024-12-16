@@ -11,13 +11,14 @@ interface SidebarProps {
 }
 
 export default function Sidebar({ threads }: SidebarProps) {
+  /* States */
   const { isMobile } = getUserDevice()
   const { isSidebarHidden, setIsSidebarHidden } = useSidebarContext()
 
   // Hide sidebar on mobile by default
   React.useEffect(() => {
     if (isMobile && !isSidebarHidden) setIsSidebarHidden(true)
-  }, [])
+  }, [isMobile, isSidebarHidden, setIsSidebarHidden])
 
   return (
     <div

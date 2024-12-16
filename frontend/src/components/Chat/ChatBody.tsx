@@ -9,6 +9,7 @@ interface ChatBodyProps {
 }
 
 export default function ChatBody({ messages }: ChatBodyProps) {
+  /* States */
   const { isResolving } = useChatResolvingContext()
 
   return (

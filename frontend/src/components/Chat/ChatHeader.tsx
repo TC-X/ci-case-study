@@ -5,20 +5,14 @@ import IconButton from '../UI/IconButton'
 import ButtonSidebarHide from '../Buttons/ButtonSidebarHide'
 import { useSidebarContext } from '../../context/SidebarContext'
 import ButtonNewChat from '../Buttons/ButtonNewChat'
-import { getUserDevice } from '../../utils/getUserDevice'
 
 interface ChatHeaderProps {
   thread: Thread | null
 }
 
 export default function ChatHeader({ thread }: ChatHeaderProps) {
-  const { isMobile } = getUserDevice()
-  const { isSidebarHidden, setIsSidebarHidden } = useSidebarContext()
-
-  // Hide the sidebar on mobile
-  React.useEffect(() => {
-    if (isMobile) setIsSidebarHidden(true)
-  }, [isMobile, setIsSidebarHidden])
+  /* States */
+  const { isSidebarHidden } = useSidebarContext()
 
   return (
     <>
@@ -44,5 +38,3 @@ export default function ChatHeader({ thread }: ChatHeaderProps) {
     </>
   )
 }
-
-// const
