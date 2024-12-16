@@ -89,6 +89,49 @@ No authentication, WebSockets, or persistent storage layers are implemented, as 
 
 ---
 
+## Data Model & Messaging Flow
+
+### Messaging Mechanism
+
+This application is designed around a simple conversation thread model. Threads contain messages from either the user or the system, allowing for a clear, organized context for each conversation.
+
+#### Core Data Strucures (Types)
+
+- **Thread**:
+
+  - `threadId` (Primary Key): Unique identifier for the thread
+  - `threadTitle`: A human-readable title for the thread
+
+- **Message**:
+  - `threadId` (Foreign Key): Associates the message with a specific thread
+  - `messageId` (Primary Key): Unique identifier for the message within the thread
+  - `messageModel`: Indicates the model used to generate the message (e.g., a selected LLM model)
+  - `messageAuthor`: Indicates who authored the message (e.g., "user" or "assistant")
+  - `messageContent`: The text content of the message
+  - `messageTimestamp`: A timestamp for when the message was created or received
+
+### Messaging Flow
+
+1. **User Interaction**:  
+   The user types a prompt into the chat input form and submits it.
+
+2. **Immediate Feedback on the Frontend**:  
+   As soon as the user submits the prompt, the `useSendMessage` hook adds a new user-authored message to the local state. This ensures that the UI updates instantly, showing the user’s message without waiting for a backend response.
+
+3. **Preparing the Context**:  
+   The system then gathers all messages associated with the current thread, extracting only essential fields (like `author` and `content`). This set of messages represents the conversation’s history and context.
+
+4. **Backend Request**:  
+   With the context ready, the frontend sends a request to the backend’s `POST /api/chat` endpoint. Although currently no true LLM integration is used, the request simulates sending the entire conversation context to a language model so it can generate a context-aware reply.
+
+5. **Backend Response**:  
+   The backend returns a predetermined or simulated response. The frontend processes this response, normalizing it into the predefined `Message` data structure. This step ensures that the new message aligns with the existing state structure.
+
+6. **UI Update**:  
+   Once the response message is integrated into the state, React re-renders the UI. The user now sees the backend-generated reply below their original prompt, maintaining a fluid and natural conversation flow.
+
+---
+
 ## Installation & Setup
 
 ### Clone the Project
@@ -214,6 +257,25 @@ Throughout the project, I focused on building a maintainable and scalable codeba
 - **Styling**: Built desktop-first with TailwindCSS. The approach was to provide a flexible, user-centric UI inspired by familiar chat interfaces (like ChatGPT), while ensuring specificity in styling to avoid accidental overrides.
 
 These guidelines helped create a codebase that is easy to navigate, extend, and maintain, while allowing for future growth as requirements evolve.
+
+---
+
+## Future Enhancements & Considerations
+
+**Core Functionality**
+
+- **LLM Integration:** Connect with a real language model.
+- **Database Integration:** Store threads and messages in a real database for better scalability.
+- **Thread Management:** Create, rename, and delete threads, moving beyond basic local storage.
+- **Routing:** Use a router (e.g., React Router) for cleaner navigation between different views.
+- **User Management:** User accounts, profiles and authentication.
+
+**Enhancement Features**
+
+- **Dynamic Components:** Return data in formats that can be displayed as special UI elements (e.g., charts).
+- **Message Editing & Branching:** Allow users to revise previous messages and branch conversations.
+- **File Uploads:** Enable sending attachments within chats.
+- **Web Data Integration:** Incorporate real-time information from external sources to improve response quality.
 
 ---
 
