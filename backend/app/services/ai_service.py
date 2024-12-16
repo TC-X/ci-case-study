@@ -1,16 +1,21 @@
 import random
 class AIService:
     def call_example_ai(input_context: str) -> str:
-        return random_response()
+
+        # similate return from AI model SDK
+        return {
+            "response_model": 'demo-model',
+            "response_author": 'assistant',
+            "response_content": random_response()
+        }
     
     def call_openai_api(input_context: str) -> str:
-        return "OpenAI response!"
+        return "Future Use: OpenAI response"
     
     def call_claude_ai(input_context: str) -> str:
-        return "Claude AI response!"
+        return "Future Use: Claude AI response"
     
-
-# random responses
+# random responses for demonstration purpose
 def random_response():
     responses = [
         # Response 1

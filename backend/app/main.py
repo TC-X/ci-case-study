@@ -5,11 +5,12 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
 # CORS settings
-origins = ["http://localhost:3000"]
+FRONTEND_URL = "http://localhost:3000"
+origins = FRONTEND_URL
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=FRONTEND_URL,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
