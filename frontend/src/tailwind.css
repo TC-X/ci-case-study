@@ -36,3 +36,8 @@ a img,
 button img {
   @apply select-none;
 }
+
+.recharts-wrapper,
+.recharts-legend-wrapper {
+  @apply size-full max-w-full;
+}
