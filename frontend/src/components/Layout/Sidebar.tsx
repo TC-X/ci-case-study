@@ -2,8 +2,8 @@ import React from "react"
 import { Thread } from "../../types/chat"
 import ThreadList from "../ThreadList"
 import { useSidebarContext } from "../../context/SidebarContext"
-import ButtonSidebarHide from "../Buttons/ButtonSidebarHide"
-import ButtonNewChat from "../Buttons/ButtonNewChat"
+import ButtonSidebarHide from "../Button/ButtonSidebarHide"
+import ButtonNewChat from "../Button/ButtonNewChat"
 import { getUserDevice } from "../../utils/getUserDevice"
 
 interface SidebarProps {

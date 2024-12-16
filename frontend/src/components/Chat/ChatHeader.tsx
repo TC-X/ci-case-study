@@ -2,9 +2,9 @@ import React from "react"
 import { Thread } from "../../types/chat"
 import { IconEllipsisVertical, IconSettings } from "../../utils/icons"
 import IconButton from "../UI/IconButton"
-import ButtonSidebarHide from "../Buttons/ButtonSidebarHide"
+import ButtonSidebarHide from "../Button/ButtonSidebarHide"
 import { useSidebarContext } from "../../context/SidebarContext"
-import ButtonNewChat from "../Buttons/ButtonNewChat"
+import ButtonNewChat from "../Button/ButtonNewChat"
 
 interface ChatHeaderProps {
   thread: Thread | null
