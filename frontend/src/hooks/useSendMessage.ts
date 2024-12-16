@@ -47,6 +47,32 @@ export function useSendMessage({ thread, messages, setMessages }: UseSendMessage
         setMessages((prevMessages) => [...prevMessages, responseMessage])
       } catch (error) {
         console.error('Failed to send message:', error)
+        console.info(`This could be due to the following reasons:
+
+          #################################
+          ######## Troubleshooting ########
+          #################################
+
+          ## Backend ##
+          1. Is backend running?
+             Ensure that the backend is running, and which port it is running on.
+          2. Is backend port 5678?
+             Test by curling the backend endpoint directly. (In this case port 5678 is preset on the chatService.ts)
+             –– $ curl -X POST "http://localhost:5678/api/chat/" -H "Content-Type: application/json" -d '{"message": "Hello World"}'
+          3. Is CORS issue?
+             If console shows 'ERROR 405 Method Not Allowed'
+             Go to /backend/main.py ensure variable 'FRONTEND_URL' is set to the correct frontend port.
+             Save file, then restart the backend server.
+
+          ## Frontend ##
+          1. Has backend port changed?
+             If backend runs on the different port (not 5678)
+             Go to /frontend/services/chatService.ts and update the 'BACKEND_ENDPOINT' variable to the correct backend port.
+
+          If the issue persists, please don't hesitate to reach out to me at 306-881-4446 or tc.thitiwat@gmail.com :)
+        `)
+
+        alert('Oops! Unable to connect to the backend API. Please check the console for more details.')
       }
     },
     [thread, messages, setMessages]

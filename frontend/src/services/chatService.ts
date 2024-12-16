@@ -1,5 +1,7 @@
 import { Message } from '../types/chat'
 
+const BACKEND_ENDPOINT = 'http://localhost:56781/api/chat/'
+
 interface getChatResponseProps {
   inputContext: Message[]
 }
@@ -17,7 +19,7 @@ export async function getChatResponse({ inputContext }: getChatResponseProps) {
   // testing time delay
   await new Promise((resolve) => setTimeout(resolve, 1000))
 
-  const response = await fetch('http://localhost:5001/api/chat/', {
+  const response = await fetch(BACKEND_ENDPOINT, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
