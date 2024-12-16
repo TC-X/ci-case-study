@@ -3,16 +3,15 @@ import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism"
-import { Message } from "../../types/chat"
 
 interface MarkdownProps {
-  message: Message
+  messageContent: string
 }
 
-export default function Markdown({ message }: MarkdownProps) {
+export default function Markdown({ messageContent }: MarkdownProps) {
   return (
     <ReactMarkdown
-      children={message.messageContent}
+      children={messageContent}
       remarkPlugins={[remarkGfm]}
       components={{
         code({ node, inline, className, children, ...props }) {
