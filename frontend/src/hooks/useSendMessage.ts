@@ -54,20 +54,17 @@ export function useSendMessage({ thread, messages, setMessages }: UseSendMessage
           #################################
 
           ## Backend ##
-          1. Is backend running?
-             Ensure that the backend is running, and which port it is running on.
-          2. Is backend port 5678?
-             Test by curling the backend endpoint directly. (In this case port 5678 is preset on the chatService.ts)
+          1. Is the backend running?
+             Make sure the virtual environment is activated and uvicorn is running.
+          2. Check the port 5678
+             The frontend expects http://localhost:5678. Test with:
              –– $ curl -X POST "http://localhost:5678/api/chat/" -H "Content-Type: application/json" -d '{"message": "Hello World"}'
-          3. Is CORS issue?
-             If console shows 'ERROR 405 Method Not Allowed'
-             Go to /backend/main.py ensure variable 'FRONTEND_URL' is set to the correct frontend port.
-             Save file, then restart the backend server.
+          3. CORS / 405 Errors
+             Update FRONTEND_URL in backend/app/main.py to match your frontend’s origin. Restart the backend if changed.
 
           ## Frontend ##
-          1. Has backend port changed?
-             If backend runs on the different port (not 5678)
-             Go to /frontend/services/chatService.ts and update the 'BACKEND_ENDPOINT' variable to the correct backend port.
+          1. Backend Port Changes
+             If not using port 5678, update BACKEND_ENDPOINT in frontend/services/chatService.ts.
 
           If the issue persists, please don't hesitate to reach out to me at 306-881-4446 or tc.thitiwat@gmail.com :)
         `)
