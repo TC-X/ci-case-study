@@ -5,14 +5,14 @@ interface getChatResponseProps {
 }
 
 export async function getChatResponse({ inputContext }: getChatResponseProps) {
-  // NOTE: input context pre-processing logic would go here
+  // NOTE: input context pre-processing/optimization logic would go here
   const normalizedInputContext: string = JSON.stringify(
     inputContext
       .map(({ messageContent, messageAuthor }) => `${messageAuthor.toUpperCase()} says: ${messageContent}`)
       .join(' \n\n ')
   )
 
-  console.log('input context fed to LLM:', normalizedInputContext)
+  console.log('Input context fed to llm (backend):\n', normalizedInputContext)
 
   // testing time delay
   await new Promise((resolve) => setTimeout(resolve, 1000))
@@ -31,7 +31,7 @@ export async function getChatResponse({ inputContext }: getChatResponseProps) {
 
   try {
     const data = await response.json()
-    console.log('response data:', data)
+    console.log('Raw respose data from llm (backend):', data)
     return data
   } catch (err) {
     console.error('Error parsing response:', err)
