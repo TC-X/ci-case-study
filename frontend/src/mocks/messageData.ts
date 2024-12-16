@@ -1,20 +1,20 @@
-import { Message } from '../types/chat'
+import { Message } from "../types/chat"
 
 export const mockMessages: Message[] = [
   // Thread 1: Weekly Meal Plan for Weight Loss
   {
-    threadId: 'a1b2c3d4-e5f6-7890-abcd-1234567890ab',
-    messageId: 'm1a2b3c4-d5e6-7890-abcd-1234567890ab',
-    messageModel: '',
-    messageAuthor: 'user',
-    messageContent: 'Can you provide a weekly meal plan for weight loss?',
-    messageTimestamp: '2024-11-01T08:30:00.000Z',
+    threadId: "a1b2c3d4-e5f6-7890-abcd-1234567890ab",
+    messageId: "m1a2b3c4-d5e6-7890-abcd-1234567890ab",
+    messageModel: "",
+    messageAuthor: "user",
+    messageContent: "Can you provide a weekly meal plan for weight loss?",
+    messageTimestamp: "2024-11-01T08:30:00.000Z",
   },
   {
-    threadId: 'a1b2c3d4-e5f6-7890-abcd-1234567890ab',
-    messageId: 'm2b3c4d5-e6f7-8901-bcde-2345678901bc',
-    messageModel: 'gpt-4',
-    messageAuthor: 'assistant',
+    threadId: "a1b2c3d4-e5f6-7890-abcd-1234567890ab",
+    messageId: "m2b3c4d5-e6f7-8901-bcde-2345678901bc",
+    messageModel: "gpt-4",
+    messageAuthor: "assistant",
     messageContent: `
 **Weekly Meal Plan for Weight Loss**
 
@@ -53,21 +53,21 @@ export const mockMessages: Message[] = [
 - **Lunch:** Mixed vegetable stir-fry with tofu
 - **Dinner:** Roast chicken with roasted vegetables and a side salad
     `,
-    messageTimestamp: '2024-11-01T08:32:00.000Z',
+    messageTimestamp: "2024-11-01T08:32:00.000Z",
   },
   {
-    threadId: 'a1b2c3d4-e5f6-7890-abcd-1234567890ab',
-    messageId: 'm3c4d5e6-f7g8-9012-cdef-3456789012cd',
-    messageModel: 'gpt-4',
-    messageAuthor: 'user',
-    messageContent: 'Can you include some snack options between meals?',
-    messageTimestamp: '2024-11-01T09:00:00.000Z',
+    threadId: "a1b2c3d4-e5f6-7890-abcd-1234567890ab",
+    messageId: "m3c4d5e6-f7g8-9012-cdef-3456789012cd",
+    messageModel: "gpt-4",
+    messageAuthor: "user",
+    messageContent: "Can you include some snack options between meals?",
+    messageTimestamp: "2024-11-01T09:00:00.000Z",
   },
   {
-    threadId: 'a1b2c3d4-e5f6-7890-abcd-1234567890ab',
-    messageId: 'm4d5e6f7-g8h9-0123-def0-4567890123de',
-    messageModel: 'gpt-4',
-    messageAuthor: 'assistant',
+    threadId: "a1b2c3d4-e5f6-7890-abcd-1234567890ab",
+    messageId: "m4d5e6f7-g8h9-0123-def0-4567890123de",
+    messageModel: "gpt-4",
+    messageAuthor: "assistant",
     messageContent: `
 **Healthy Snack Options:**
 - **Morning Snack:** A handful of almonds or walnuts
@@ -78,23 +78,23 @@ export const mockMessages: Message[] = [
   - Whole grain crackers with avocado
   - Greek yogurt with a sprinkle of chia seeds
     `,
-    messageTimestamp: '2024-11-01T09:05:00.000Z',
+    messageTimestamp: "2024-11-01T09:05:00.000Z",
   },
 
   // Thread 2: Best Exercises for a Beginner
   {
-    threadId: 'b2c3d4e5-f6a7-8901-bcde-2345678901bc',
-    messageId: 'm5e6f7g8-h9i0-1234-ef01-5678901234ef',
-    messageModel: '',
-    messageAuthor: 'user',
-    messageContent: 'What are the best exercises for a beginner looking to get fit?',
-    messageTimestamp: '2024-11-02T10:15:00.000Z',
+    threadId: "b2c3d4e5-f6a7-8901-bcde-2345678901bc",
+    messageId: "m5e6f7g8-h9i0-1234-ef01-5678901234ef",
+    messageModel: "",
+    messageAuthor: "user",
+    messageContent: "What are the best exercises for a beginner looking to get fit?",
+    messageTimestamp: "2024-11-02T10:15:00.000Z",
   },
   {
-    threadId: 'b2c3d4e5-f6a7-8901-bcde-2345678901bc',
-    messageId: 'm6f7g8h9-i0j1-2345-f012-6789012345fg',
-    messageModel: 'gpt-4',
-    messageAuthor: 'assistant',
+    threadId: "b2c3d4e5-f6a7-8901-bcde-2345678901bc",
+    messageId: "m6f7g8h9-i0j1-2345-f012-6789012345fg",
+    messageModel: "gpt-4",
+    messageAuthor: "assistant",
     messageContent: `
 **Best Exercises for Beginners:**
 
@@ -113,21 +113,21 @@ export const mockMessages: Message[] = [
 - **Rest:** Allow adequate rest between workout days for muscle recovery.
 - **Hydration and Nutrition:** Maintain a balanced diet and stay hydrated to support your fitness journey.
     `,
-    messageTimestamp: '2024-11-02T10:17:00.000Z',
+    messageTimestamp: "2024-11-02T10:17:00.000Z",
   },
   {
-    threadId: 'b2c3d4e5-f6a7-8901-bcde-2345678901bc',
-    messageId: 'm7g8h9i0-j1k2-3456-f123-7890123456gh',
-    messageModel: 'gpt-4',
-    messageAuthor: 'user',
-    messageContent: 'How often should I perform these exercises each week?',
-    messageTimestamp: '2024-11-02T10:20:00.000Z',
+    threadId: "b2c3d4e5-f6a7-8901-bcde-2345678901bc",
+    messageId: "m7g8h9i0-j1k2-3456-f123-7890123456gh",
+    messageModel: "gpt-4",
+    messageAuthor: "user",
+    messageContent: "How often should I perform these exercises each week?",
+    messageTimestamp: "2024-11-02T10:20:00.000Z",
   },
   {
-    threadId: 'b2c3d4e5-f6a7-8901-bcde-2345678901bc',
-    messageId: 'm8h9i0j1-k2l3-4567-0123-8901234567ij',
-    messageModel: 'gpt-4',
-    messageAuthor: 'assistant',
+    threadId: "b2c3d4e5-f6a7-8901-bcde-2345678901bc",
+    messageId: "m8h9i0j1-k2l3-4567-0123-8901234567ij",
+    messageModel: "gpt-4",
+    messageAuthor: "assistant",
     messageContent: `
 **Recommended Exercise Frequency for Beginners:**
 
@@ -154,23 +154,23 @@ export const mockMessages: Message[] = [
 - **Saturday:** Rest or Light Activity
 - **Sunday:** Strength Training + Stretching
     `,
-    messageTimestamp: '2024-11-02T10:25:00.000Z',
+    messageTimestamp: "2024-11-02T10:25:00.000Z",
   },
 
   // Thread 3: Introduction to Quantum Computing
   {
-    threadId: 'c3d4e5f6-a7b8-9012-cdef-3456789012cd',
-    messageId: 'm9i0j1k2-l3m4-5678-1234-9012345678jk',
-    messageModel: '',
-    messageAuthor: 'user',
-    messageContent: 'Can you explain the basics of quantum computing?',
-    messageTimestamp: '2024-11-03T14:45:00.000Z',
+    threadId: "c3d4e5f6-a7b8-9012-cdef-3456789012cd",
+    messageId: "m9i0j1k2-l3m4-5678-1234-9012345678jk",
+    messageModel: "",
+    messageAuthor: "user",
+    messageContent: "Can you explain the basics of quantum computing?",
+    messageTimestamp: "2024-11-03T14:45:00.000Z",
   },
   {
-    threadId: 'c3d4e5f6-a7b8-9012-cdef-3456789012cd',
-    messageId: 'm10j1k2l3-m4n5-6789-2345-0123456789lm',
-    messageModel: 'gpt-4',
-    messageAuthor: 'assistant',
+    threadId: "c3d4e5f6-a7b8-9012-cdef-3456789012cd",
+    messageId: "m10j1k2l3-m4n5-6789-2345-0123456789lm",
+    messageModel: "gpt-4",
+    messageAuthor: "assistant",
     messageContent: `
 **Introduction to Quantum Computing**
 
@@ -207,21 +207,21 @@ Quantum computing is an area of computing focused on developing computer technol
 
 Quantum computing is still in its early stages, but it holds the promise of revolutionizing various fields by solving problems that are currently intractable for classical computers.
     `,
-    messageTimestamp: '2024-11-03T14:47:00.000Z',
+    messageTimestamp: "2024-11-03T14:47:00.000Z",
   },
   {
-    threadId: 'c3d4e5f6-a7b8-9012-cdef-3456789012cd',
-    messageId: 'm11k2l3m4-n5o6-7890-3456-1234567890no',
-    messageModel: 'gpt-4',
-    messageAuthor: 'user',
-    messageContent: 'What are the current limitations of quantum computers?',
-    messageTimestamp: '2024-11-03T15:00:00.000Z',
+    threadId: "c3d4e5f6-a7b8-9012-cdef-3456789012cd",
+    messageId: "m11k2l3m4-n5o6-7890-3456-1234567890no",
+    messageModel: "gpt-4",
+    messageAuthor: "user",
+    messageContent: "What are the current limitations of quantum computers?",
+    messageTimestamp: "2024-11-03T15:00:00.000Z",
   },
   {
-    threadId: 'c3d4e5f6-a7b8-9012-cdef-3456789012cd',
-    messageId: 'm12l3m4n5-o6p7-8901-4567-2345678901op',
-    messageModel: 'gpt-4',
-    messageAuthor: 'assistant',
+    threadId: "c3d4e5f6-a7b8-9012-cdef-3456789012cd",
+    messageId: "m12l3m4n5-o6p7-8901-4567-2345678901op",
+    messageModel: "gpt-4",
+    messageAuthor: "assistant",
     messageContent: `
 **Current Limitations of Quantum Computers**
 
@@ -258,23 +258,23 @@ Quantum computing is still in its early stages, but it holds the promise of revo
 **Conclusion:**
 While quantum computing holds immense potential, overcoming these limitations is crucial for realizing its full capabilities. Ongoing research and technological advancements aim to address these challenges, paving the way for more robust and scalable quantum systems in the future.
     `,
-    messageTimestamp: '2024-11-03T15:05:00.000Z',
+    messageTimestamp: "2024-11-03T15:05:00.000Z",
   },
 
   // Thread 4: Effective Digital Marketing Strategies for E-commerce
   {
-    threadId: 'd4e5f6a7-b8c9-0123-def0-4567890123de',
-    messageId: 'm13m4n5o6-p7q8-9012-5678-3456789012pq',
-    messageModel: '',
-    messageAuthor: 'user',
-    messageContent: 'What are some effective digital marketing strategies for an e-commerce business?',
-    messageTimestamp: '2024-11-04T11:20:00.000Z',
+    threadId: "d4e5f6a7-b8c9-0123-def0-4567890123de",
+    messageId: "m13m4n5o6-p7q8-9012-5678-3456789012pq",
+    messageModel: "",
+    messageAuthor: "user",
+    messageContent: "What are some effective digital marketing strategies for an e-commerce business?",
+    messageTimestamp: "2024-11-04T11:20:00.000Z",
   },
   {
-    threadId: 'd4e5f6a7-b8c9-0123-def0-4567890123de',
-    messageId: 'm14n5o6p7-q8r9-0123-6789-4567890123qr',
-    messageModel: 'gpt-4',
-    messageAuthor: 'assistant',
+    threadId: "d4e5f6a7-b8c9-0123-def0-4567890123de",
+    messageId: "m14n5o6p7-q8r9-0123-6789-4567890123qr",
+    messageModel: "gpt-4",
+    messageAuthor: "assistant",
     messageContent: `
 **Effective Digital Marketing Strategies for E-commerce**
 
@@ -329,21 +329,21 @@ While quantum computing holds immense potential, overcoming these limitations is
 **Conclusion:**
 Implementing a combination of these digital marketing strategies can significantly enhance your e-commerce business's visibility, engagement, and sales. Regularly assess and adjust your approach based on performance metrics to achieve sustained growth.
     `,
-    messageTimestamp: '2024-11-04T11:25:00.000Z',
+    messageTimestamp: "2024-11-04T11:25:00.000Z",
   },
   {
-    threadId: 'd4e5f6a7-b8c9-0123-def0-4567890123de',
-    messageId: 'm15o6p7q8-r9s0-1234-7890-5678901234st',
-    messageModel: 'gpt-4',
-    messageAuthor: 'user',
-    messageContent: 'How can I effectively use social media advertising for my online store?',
-    messageTimestamp: '2024-11-04T11:30:00.000Z',
+    threadId: "d4e5f6a7-b8c9-0123-def0-4567890123de",
+    messageId: "m15o6p7q8-r9s0-1234-7890-5678901234st",
+    messageModel: "gpt-4",
+    messageAuthor: "user",
+    messageContent: "How can I effectively use social media advertising for my online store?",
+    messageTimestamp: "2024-11-04T11:30:00.000Z",
   },
   {
-    threadId: 'd4e5f6a7-b8c9-0123-def0-4567890123de',
-    messageId: 'm16p7q8r9-s0t1-2345-8901-6789012345tu',
-    messageModel: 'gpt-4',
-    messageAuthor: 'assistant',
+    threadId: "d4e5f6a7-b8c9-0123-def0-4567890123de",
+    messageId: "m16p7q8r9-s0t1-2345-8901-6789012345tu",
+    messageModel: "gpt-4",
+    messageAuthor: "assistant",
     messageContent: `
 **Effectively Using Social Media Advertising for Your Online Store**
 
@@ -398,23 +398,23 @@ Implementing a combination of these digital marketing strategies can significant
 **Conclusion:**
 Social media advertising can be a powerful tool for driving traffic and sales to your online store. By strategically planning your campaigns, targeting the right audiences, and continuously optimizing your efforts, you can maximize the effectiveness of your social media advertising initiatives.
     `,
-    messageTimestamp: '2024-11-04T11:35:00.000Z',
+    messageTimestamp: "2024-11-04T11:35:00.000Z",
   },
 
   // Thread 5: Sustainable Urban Planning Solutions
   {
-    threadId: 'e5f6a7b8-c9d0-1234-ef01-5678901234ef',
-    messageId: 'm17q8r9s0-t1u2-3456-9012-7890123456uv',
-    messageModel: '',
-    messageAuthor: 'user',
-    messageContent: 'What are some sustainable urban planning solutions for modern cities?',
-    messageTimestamp: '2024-11-05T09:10:00.000Z',
+    threadId: "e5f6a7b8-c9d0-1234-ef01-5678901234ef",
+    messageId: "m17q8r9s0-t1u2-3456-9012-7890123456uv",
+    messageModel: "",
+    messageAuthor: "user",
+    messageContent: "What are some sustainable urban planning solutions for modern cities?",
+    messageTimestamp: "2024-11-05T09:10:00.000Z",
   },
   {
-    threadId: 'e5f6a7b8-c9d0-1234-ef01-5678901234ef',
-    messageId: 'm18r9s0t1-u2v3-4567-0123-8901234567vw',
-    messageModel: 'gpt-4',
-    messageAuthor: 'assistant',
+    threadId: "e5f6a7b8-c9d0-1234-ef01-5678901234ef",
+    messageId: "m18r9s0t1-u2v3-4567-0123-8901234567vw",
+    messageModel: "gpt-4",
+    messageAuthor: "assistant",
     messageContent: `
 **Sustainable Urban Planning Solutions for Modern Cities**
 
@@ -470,21 +470,21 @@ Social media advertising can be a powerful tool for driving traffic and sales to
 **Conclusion:**
 Implementing these sustainable urban planning solutions can lead to more livable, resilient, and environmentally friendly cities. By integrating green practices, enhancing public transportation, and leveraging technology, modern cities can address the challenges of urbanization while promoting sustainability and improving the quality of life for their residents.
     `,
-    messageTimestamp: '2024-11-05T09:15:00.000Z',
+    messageTimestamp: "2024-11-05T09:15:00.000Z",
   },
   {
-    threadId: 'e5f6a7b8-c9d0-1234-ef01-5678901234ef',
-    messageId: 'm19s0t1u2-v3w4-5678-1234-9012345678wx',
-    messageModel: 'gpt-4',
-    messageAuthor: 'user',
-    messageContent: 'How can smart city technologies contribute to sustainability?',
-    messageTimestamp: '2024-11-05T09:20:00.000Z',
+    threadId: "e5f6a7b8-c9d0-1234-ef01-5678901234ef",
+    messageId: "m19s0t1u2-v3w4-5678-1234-9012345678wx",
+    messageModel: "gpt-4",
+    messageAuthor: "user",
+    messageContent: "How can smart city technologies contribute to sustainability?",
+    messageTimestamp: "2024-11-05T09:20:00.000Z",
   },
   {
-    threadId: 'e5f6a7b8-c9d0-1234-ef01-5678901234ef',
-    messageId: 'm20t1u2v3-w4x5-6789-2345-0123456789xy',
-    messageModel: 'gpt-4',
-    messageAuthor: 'assistant',
+    threadId: "e5f6a7b8-c9d0-1234-ef01-5678901234ef",
+    messageId: "m20t1u2v3-w4x5-6789-2345-0123456789xy",
+    messageModel: "gpt-4",
+    messageAuthor: "assistant",
     messageContent: `
 **Contribution of Smart City Technologies to Sustainability**
 
@@ -545,22 +545,22 @@ Smart city technologies leverage digital innovations to enhance urban living, im
 **Conclusion:**
 Smart city technologies play a pivotal role in advancing sustainability by enhancing the efficiency of urban systems, reducing environmental impact, and improving the overall quality of life for residents. Integrating these technologies into urban planning and development is essential for creating resilient and sustainable cities for the future.
     `,
-    messageTimestamp: '2024-11-05T09:25:00.000Z',
+    messageTimestamp: "2024-11-05T09:25:00.000Z",
   },
   // Messages for Thread 6: Blockchain Technology in Finance
   {
-    threadId: 'f6a7b8c9-d0e1-2345-fg12-6789012345gh',
-    messageId: 'm21u2v3w4-x5y6-7890-zabc-6789012345yz',
-    messageModel: '',
-    messageAuthor: 'user',
-    messageContent: 'How is blockchain technology transforming the finance industry?',
-    messageTimestamp: '2024-11-06T10:00:00.000Z',
+    threadId: "f6a7b8c9-d0e1-2345-fg12-6789012345gh",
+    messageId: "m21u2v3w4-x5y6-7890-zabc-6789012345yz",
+    messageModel: "",
+    messageAuthor: "user",
+    messageContent: "How is blockchain technology transforming the finance industry?",
+    messageTimestamp: "2024-11-06T10:00:00.000Z",
   },
   {
-    threadId: 'f6a7b8c9-d0e1-2345-fg12-6789012345gh',
-    messageId: 'm22v3w4x5-y6z7-8901-abcd-7890123456ab',
-    messageModel: 'gpt-4',
-    messageAuthor: 'assistant',
+    threadId: "f6a7b8c9-d0e1-2345-fg12-6789012345gh",
+    messageId: "m22v3w4x5-y6z7-8901-abcd-7890123456ab",
+    messageModel: "gpt-4",
+    messageAuthor: "assistant",
     messageContent: `
 **Blockchain Technology in Finance**
 
@@ -597,21 +597,21 @@ Blockchain technology is revolutionizing the finance industry by providing decen
 **Conclusion:**
 Blockchain technology is driving significant advancements in the finance industry by enhancing security, reducing costs, and increasing transparency. As the technology continues to evolve, its integration into financial systems is expected to deepen, fostering innovation and transforming traditional financial services.
     `,
-    messageTimestamp: '2024-11-06T10:05:00.000Z',
+    messageTimestamp: "2024-11-06T10:05:00.000Z",
   },
   {
-    threadId: 'f6a7b8c9-d0e1-2345-fg12-6789012345gh',
-    messageId: 'm23w4x5y6-z7a8-9012-bcde-8901234567cd',
-    messageModel: 'gpt-4',
-    messageAuthor: 'user',
-    messageContent: 'What are the challenges faced by blockchain adoption in finance?',
-    messageTimestamp: '2024-11-06T10:10:00.000Z',
+    threadId: "f6a7b8c9-d0e1-2345-fg12-6789012345gh",
+    messageId: "m23w4x5y6-z7a8-9012-bcde-8901234567cd",
+    messageModel: "gpt-4",
+    messageAuthor: "user",
+    messageContent: "What are the challenges faced by blockchain adoption in finance?",
+    messageTimestamp: "2024-11-06T10:10:00.000Z",
   },
   {
-    threadId: 'f6a7b8c9-d0e1-2345-fg12-6789012345gh',
-    messageId: 'm24x5y6z7-a8b9-0123-cdef-9012345678de',
-    messageModel: 'gpt-4',
-    messageAuthor: 'assistant',
+    threadId: "f6a7b8c9-d0e1-2345-fg12-6789012345gh",
+    messageId: "m24x5y6z7-a8b9-0123-cdef-9012345678de",
+    messageModel: "gpt-4",
+    messageAuthor: "assistant",
     messageContent: `
 **Challenges of Blockchain Adoption in Finance**
 
@@ -660,23 +660,23 @@ While blockchain offers numerous benefits to the finance industry, several chall
 **Conclusion:**
 While blockchain technology holds transformative potential for the finance industry, addressing these challenges is crucial for its successful adoption. Collaborative efforts between industry stakeholders, regulators, and technology developers are essential to overcome these obstacles and fully realize the benefits of blockchain in finance.
     `,
-    messageTimestamp: '2024-11-06T10:15:00.000Z',
+    messageTimestamp: "2024-11-06T10:15:00.000Z",
   },
 
   // Messages for Thread 7: Advances in Renewable Energy Technologies
   {
-    threadId: 'g7b8c9d0-e1f2-3456-gh23-7890123456hi',
-    messageId: 'm25y6z7a8-b9c0-1234-def1-0123456789ef',
-    messageModel: '',
-    messageAuthor: 'user',
-    messageContent: 'What are the latest advances in renewable energy technologies?',
-    messageTimestamp: '2024-11-07T14:00:00.000Z',
+    threadId: "g7b8c9d0-e1f2-3456-gh23-7890123456hi",
+    messageId: "m25y6z7a8-b9c0-1234-def1-0123456789ef",
+    messageModel: "",
+    messageAuthor: "user",
+    messageContent: "What are the latest advances in renewable energy technologies?",
+    messageTimestamp: "2024-11-07T14:00:00.000Z",
   },
   {
-    threadId: 'g7b8c9d0-e1f2-3456-gh23-7890123456hi',
-    messageId: 'm26z7a8b9-c0d1-2345-efg2-1234567890fg',
-    messageModel: 'gpt-4',
-    messageAuthor: 'assistant',
+    threadId: "g7b8c9d0-e1f2-3456-gh23-7890123456hi",
+    messageId: "m26z7a8b9-c0d1-2345-efg2-1234567890fg",
+    messageModel: "gpt-4",
+    messageAuthor: "assistant",
     messageContent: `
 **Latest Advances in Renewable Energy Technologies**
 
@@ -729,21 +729,21 @@ Renewable energy technologies have seen significant advancements in recent years
 **Conclusion:**
 The ongoing advancements in renewable energy technologies are crucial for transitioning to a sustainable and low-carbon energy future. Innovations across various sectors are enhancing the efficiency, reliability, and affordability of renewable energy sources, making them increasingly viable alternatives to traditional fossil fuels.
     `,
-    messageTimestamp: '2024-11-07T14:05:00.000Z',
+    messageTimestamp: "2024-11-07T14:05:00.000Z",
   },
   {
-    threadId: 'g7b8c9d0-e1f2-3456-gh23-7890123456hi',
-    messageId: 'm27a8b9c0-d1e2-3456-fgh3-2345678901gh',
-    messageModel: 'gpt-4',
-    messageAuthor: 'user',
-    messageContent: 'How is green hydrogen being produced and utilized in industries?',
-    messageTimestamp: '2024-11-07T14:10:00.000Z',
+    threadId: "g7b8c9d0-e1f2-3456-gh23-7890123456hi",
+    messageId: "m27a8b9c0-d1e2-3456-fgh3-2345678901gh",
+    messageModel: "gpt-4",
+    messageAuthor: "user",
+    messageContent: "How is green hydrogen being produced and utilized in industries?",
+    messageTimestamp: "2024-11-07T14:10:00.000Z",
   },
   {
-    threadId: 'g7b8c9d0-e1f2-3456-gh23-7890123456hi',
-    messageId: 'm28b9c0d1-e2f3-4567-ghi4-3456789012hi',
-    messageModel: 'gpt-4',
-    messageAuthor: 'assistant',
+    threadId: "g7b8c9d0-e1f2-3456-gh23-7890123456hi",
+    messageId: "m28b9c0d1-e2f3-4567-ghi4-3456789012hi",
+    messageModel: "gpt-4",
+    messageAuthor: "assistant",
     messageContent: `
 **Production and Utilization of Green Hydrogen in Industries**
 
@@ -815,23 +815,23 @@ Green hydrogen serves as a versatile energy carrier and feedstock across multipl
 **Conclusion:**
 Green hydrogen plays a pivotal role in the transition to a sustainable and low-carbon economy. Its production through renewable energy-powered electrolysis and diverse applications across industries make it a key component in achieving global decarbonization goals. Overcoming current challenges through innovation, investment, and policy support will be essential for realizing the full potential of green hydrogen.
     `,
-    messageTimestamp: '2024-11-07T14:15:00.000Z',
+    messageTimestamp: "2024-11-07T14:15:00.000Z",
   },
 
   // Messages for Thread 8: Impact of Artificial Intelligence on Healthcare
   {
-    threadId: 'h8c9d0e1-f2g3-4567-hi34-8901234567ij',
-    messageId: 'm29c0d1e2-f3g4-5678-hij5-4567890123jk',
-    messageModel: '',
-    messageAuthor: 'user',
-    messageContent: 'How is artificial intelligence impacting the healthcare industry?',
-    messageTimestamp: '2024-11-08T16:30:00.000Z',
+    threadId: "h8c9d0e1-f2g3-4567-hi34-8901234567ij",
+    messageId: "m29c0d1e2-f3g4-5678-hij5-4567890123jk",
+    messageModel: "",
+    messageAuthor: "user",
+    messageContent: "How is artificial intelligence impacting the healthcare industry?",
+    messageTimestamp: "2024-11-08T16:30:00.000Z",
   },
   {
-    threadId: 'h8c9d0e1-f2g3-4567-hi34-8901234567ij',
-    messageId: 'm30d1e2f3-g4h5-6789-ijk6-5678901234kl',
-    messageModel: 'gpt-4',
-    messageAuthor: 'assistant',
+    threadId: "h8c9d0e1-f2g3-4567-hi34-8901234567ij",
+    messageId: "m30d1e2f3-g4h5-6789-ijk6-5678901234kl",
+    messageModel: "gpt-4",
+    messageAuthor: "assistant",
     messageContent: `
 **Impact of Artificial Intelligence on the Healthcare Industry**
 
@@ -895,21 +895,21 @@ Artificial Intelligence (AI) is transforming the healthcare industry by enhancin
 **Conclusion:**
 Artificial Intelligence is revolutionizing the healthcare industry by enhancing diagnostic capabilities, personalizing treatments, optimizing operations, and improving patient outcomes. While the benefits are substantial, addressing challenges related to data privacy, bias, integration, and ethical considerations is crucial for the responsible and effective implementation of AI in healthcare. Continued collaboration between technologists, healthcare providers, policymakers, and patients will be essential to fully harness the potential of AI in transforming healthcare delivery.
     `,
-    messageTimestamp: '2024-11-08T16:35:00.000Z',
+    messageTimestamp: "2024-11-08T16:35:00.000Z",
   },
   {
-    threadId: 'h8c9d0e1-f2g3-4567-hi34-8901234567ij',
-    messageId: 'm31e2f3g4-h5i6-7890-jkl7-6789012345lm',
-    messageModel: 'gpt-4',
-    messageAuthor: 'user',
-    messageContent: 'What ethical considerations arise from the use of AI in healthcare?',
-    messageTimestamp: '2024-11-08T16:40:00.000Z',
+    threadId: "h8c9d0e1-f2g3-4567-hi34-8901234567ij",
+    messageId: "m31e2f3g4-h5i6-7890-jkl7-6789012345lm",
+    messageModel: "gpt-4",
+    messageAuthor: "user",
+    messageContent: "What ethical considerations arise from the use of AI in healthcare?",
+    messageTimestamp: "2024-11-08T16:40:00.000Z",
   },
   {
-    threadId: 'h8c9d0e1-f2g3-4567-hi34-8901234567ij',
-    messageId: 'm32f3g4h5-i6j7-8901-klm8-7890123456mn',
-    messageModel: 'gpt-4',
-    messageAuthor: 'assistant',
+    threadId: "h8c9d0e1-f2g3-4567-hi34-8901234567ij",
+    messageId: "m32f3g4h5-i6j7-8901-klm8-7890123456mn",
+    messageModel: "gpt-4",
+    messageAuthor: "assistant",
     messageContent: `
 **Ethical Considerations of AI in Healthcare**
 
@@ -974,21 +974,21 @@ The integration of Artificial Intelligence (AI) in healthcare brings forth numer
 **Conclusion:**
 Addressing the ethical considerations of AI in healthcare is essential for fostering trust, ensuring equitable access, and maximizing the benefits of AI technologies. By proactively tackling these ethical challenges through thoughtful policies, inclusive practices, and continuous oversight, the healthcare industry can harness the full potential of AI while safeguarding the rights and well-being of patients.
     `,
-    messageTimestamp: '2024-11-08T16:45:00.000Z',
+    messageTimestamp: "2024-11-08T16:45:00.000Z",
   },
   {
-    threadId: 'f6g7h8i9-j0k1-2345-lmno-6789012345fg',
-    messageId: 'm21u2v3w4-x5y6-7890-abcd-9012345678uv',
-    messageModel: '',
-    messageAuthor: 'user',
-    messageContent: 'How is artificial intelligence being utilized in the healthcare industry?',
-    messageTimestamp: '2024-11-06T10:00:00.000Z',
+    threadId: "f6g7h8i9-j0k1-2345-lmno-6789012345fg",
+    messageId: "m21u2v3w4-x5y6-7890-abcd-9012345678uv",
+    messageModel: "",
+    messageAuthor: "user",
+    messageContent: "How is artificial intelligence being utilized in the healthcare industry?",
+    messageTimestamp: "2024-11-06T10:00:00.000Z",
   },
   {
-    threadId: 'f6g7h8i9-j0k1-2345-lmno-6789012345fg',
-    messageId: 'm22v3w4x5-y6z7-8901-bcde-0123456789vw',
-    messageModel: 'gpt-4',
-    messageAuthor: 'assistant',
+    threadId: "f6g7h8i9-j0k1-2345-lmno-6789012345fg",
+    messageId: "m22v3w4x5-y6z7-8901-bcde-0123456789vw",
+    messageModel: "gpt-4",
+    messageAuthor: "assistant",
     messageContent: `
 **Artificial Intelligence in Healthcare**
 
@@ -1035,21 +1035,21 @@ Artificial Intelligence (AI) is revolutionizing the healthcare industry by enhan
 **Conclusion:**
 AI is a transformative force in healthcare, offering significant improvements in patient care, operational efficiency, and medical research. However, it is essential to address the associated challenges to fully realize its potential and ensure equitable benefits across the healthcare landscape.
     `,
-    messageTimestamp: '2024-11-06T10:05:00.000Z',
+    messageTimestamp: "2024-11-06T10:05:00.000Z",
   },
   {
-    threadId: 'f6g7h8i9-j0k1-2345-lmno-6789012345fg',
-    messageId: 'm23w4x5y6-z7a8-9012-cdef-1234567890wx',
-    messageModel: 'gpt-4',
-    messageAuthor: 'user',
-    messageContent: 'What are the ethical considerations of using AI in patient care?',
-    messageTimestamp: '2024-11-06T10:15:00.000Z',
+    threadId: "f6g7h8i9-j0k1-2345-lmno-6789012345fg",
+    messageId: "m23w4x5y6-z7a8-9012-cdef-1234567890wx",
+    messageModel: "gpt-4",
+    messageAuthor: "user",
+    messageContent: "What are the ethical considerations of using AI in patient care?",
+    messageTimestamp: "2024-11-06T10:15:00.000Z",
   },
   {
-    threadId: 'f6g7h8i9-j0k1-2345-lmno-6789012345fg',
-    messageId: 'm24x5y6z7-a8b9-0123-def1-2345678901xy',
-    messageModel: 'gpt-4',
-    messageAuthor: 'assistant',
+    threadId: "f6g7h8i9-j0k1-2345-lmno-6789012345fg",
+    messageId: "m24x5y6z7-a8b9-0123-def1-2345678901xy",
+    messageModel: "gpt-4",
+    messageAuthor: "assistant",
     messageContent: `
 **Ethical Considerations of Using AI in Patient Care**
 
@@ -1099,23 +1099,23 @@ The integration of Artificial Intelligence (AI) in patient care offers numerous 
 While AI holds significant promise for enhancing patient care, it is essential to navigate the ethical challenges thoughtfully. By prioritizing data privacy, fairness, transparency, and accountability, the healthcare industry can leverage AI responsibly to improve outcomes while safeguarding the rights and well-being of patients.
 
     `,
-    messageTimestamp: '2024-11-06T10:20:00.000Z',
+    messageTimestamp: "2024-11-06T10:20:00.000Z",
   },
 
   // Thread 7: Renewable Energy Solutions for Urban Areas
   {
-    threadId: 'g7h8i9j0-k1l2-3456-mnop-7890123456gh',
-    messageId: 'm25y6z7a8-b9c0-1234-ef12-3456789012yz',
-    messageModel: '',
-    messageAuthor: 'user',
-    messageContent: 'What are some effective renewable energy solutions for urban areas?',
-    messageTimestamp: '2024-11-07T12:00:00.000Z',
+    threadId: "g7h8i9j0-k1l2-3456-mnop-7890123456gh",
+    messageId: "m25y6z7a8-b9c0-1234-ef12-3456789012yz",
+    messageModel: "",
+    messageAuthor: "user",
+    messageContent: "What are some effective renewable energy solutions for urban areas?",
+    messageTimestamp: "2024-11-07T12:00:00.000Z",
   },
   {
-    threadId: 'g7h8i9j0-k1l2-3456-mnop-7890123456gh',
-    messageId: 'm26z7a8b9-c0d1-2345-f123-4567890123ab',
-    messageModel: 'gpt-4',
-    messageAuthor: 'assistant',
+    threadId: "g7h8i9j0-k1l2-3456-mnop-7890123456gh",
+    messageId: "m26z7a8b9-c0d1-2345-f123-4567890123ab",
+    messageModel: "gpt-4",
+    messageAuthor: "assistant",
     messageContent: `
 **Effective Renewable Energy Solutions for Urban Areas**
 
@@ -1173,21 +1173,21 @@ Urban areas present unique challenges and opportunities for the implementation o
 Implementing renewable energy solutions in urban areas requires a multifaceted approach that leverages available technologies, optimizes existing infrastructure, and fosters community engagement. By adopting a combination of these strategies, cities can significantly reduce their carbon footprint, enhance energy security, and promote sustainable urban living.
 
     `,
-    messageTimestamp: '2024-11-07T12:05:00.000Z',
+    messageTimestamp: "2024-11-07T12:05:00.000Z",
   },
   {
-    threadId: 'g7h8i9j0-k1l2-3456-mnop-7890123456gh',
-    messageId: 'm27a8b9c0-d1e2-3456-g234-5678901234cd',
-    messageModel: 'gpt-4',
-    messageAuthor: 'user',
-    messageContent: 'What are the benefits of implementing solar carports in cities?',
-    messageTimestamp: '2024-11-07T12:15:00.000Z',
+    threadId: "g7h8i9j0-k1l2-3456-mnop-7890123456gh",
+    messageId: "m27a8b9c0-d1e2-3456-g234-5678901234cd",
+    messageModel: "gpt-4",
+    messageAuthor: "user",
+    messageContent: "What are the benefits of implementing solar carports in cities?",
+    messageTimestamp: "2024-11-07T12:15:00.000Z",
   },
   {
-    threadId: 'g7h8i9j0-k1l2-3456-mnop-7890123456gh',
-    messageId: 'm28b9c0d1-e2f3-4567-h345-6789012345de',
-    messageModel: 'gpt-4',
-    messageAuthor: 'assistant',
+    threadId: "g7h8i9j0-k1l2-3456-mnop-7890123456gh",
+    messageId: "m28b9c0d1-e2f3-4567-h345-6789012345de",
+    messageModel: "gpt-4",
+    messageAuthor: "assistant",
     messageContent: `
 **Benefits of Implementing Solar Carports in Cities**
 
@@ -1238,23 +1238,23 @@ Solar carports are structures that provide shade and shelter for vehicles while 
 Solar carports present a strategic solution for integrating renewable energy generation into urban environments. By maximizing land use, reducing energy costs, and supporting sustainable transportation, solar carports contribute significantly to the development of greener and more resilient cities.
 
     `,
-    messageTimestamp: '2024-11-07T12:20:00.000Z',
+    messageTimestamp: "2024-11-07T12:20:00.000Z",
   },
 
   // Thread 8: Best Practices for Remote Work
   {
-    threadId: 'h8i9j0k1-l2m3-4567-nopq-8901234567hi',
-    messageId: 'm29c0d1e2-f3g4-5678-h456-7890123456ef',
-    messageModel: '',
-    messageAuthor: 'user',
-    messageContent: 'What are the best practices for managing a remote team effectively?',
-    messageTimestamp: '2024-11-08T14:30:00.000Z',
+    threadId: "h8i9j0k1-l2m3-4567-nopq-8901234567hi",
+    messageId: "m29c0d1e2-f3g4-5678-h456-7890123456ef",
+    messageModel: "",
+    messageAuthor: "user",
+    messageContent: "What are the best practices for managing a remote team effectively?",
+    messageTimestamp: "2024-11-08T14:30:00.000Z",
   },
   {
-    threadId: 'h8i9j0k1-l2m3-4567-nopq-8901234567hi',
-    messageId: 'm30d1e2f3-g4h5-6789-i567-8901234567fg',
-    messageModel: 'gpt-4',
-    messageAuthor: 'assistant',
+    threadId: "h8i9j0k1-l2m3-4567-nopq-8901234567hi",
+    messageId: "m30d1e2f3-g4h5-6789-i567-8901234567fg",
+    messageModel: "gpt-4",
+    messageAuthor: "assistant",
     messageContent: `
 **Best Practices for Managing a Remote Team Effectively**
 
@@ -1323,21 +1323,21 @@ Managing a remote team presents unique challenges and opportunities. Effective r
 Effective management of a remote team hinges on clear communication, defined goals, strong leadership, and a supportive team culture. By implementing these best practices, managers can foster a productive, engaged, and cohesive remote workforce that thrives despite geographical distances.
 
     `,
-    messageTimestamp: '2024-11-08T14:35:00.000Z',
+    messageTimestamp: "2024-11-08T14:35:00.000Z",
   },
   {
-    threadId: 'h8i9j0k1-l2m3-4567-nopq-8901234567hi',
-    messageId: 'm31e2f3g4-h5i6-7890-j678-9012345678jk',
-    messageModel: 'gpt-4',
-    messageAuthor: 'user',
-    messageContent: 'How can I maintain team cohesion and morale in a fully remote environment?',
-    messageTimestamp: '2024-11-08T14:40:00.000Z',
+    threadId: "h8i9j0k1-l2m3-4567-nopq-8901234567hi",
+    messageId: "m31e2f3g4-h5i6-7890-j678-9012345678jk",
+    messageModel: "gpt-4",
+    messageAuthor: "user",
+    messageContent: "How can I maintain team cohesion and morale in a fully remote environment?",
+    messageTimestamp: "2024-11-08T14:40:00.000Z",
   },
   {
-    threadId: 'h8i9j0k1-l2m3-4567-nopq-8901234567hi',
-    messageId: 'm32f3g4h5-i6j7-8901-k789-0123456789lm',
-    messageModel: 'gpt-4',
-    messageAuthor: 'assistant',
+    threadId: "h8i9j0k1-l2m3-4567-nopq-8901234567hi",
+    messageId: "m32f3g4h5-i6j7-8901-k789-0123456789lm",
+    messageModel: "gpt-4",
+    messageAuthor: "assistant",
     messageContent: `
 **Maintaining Team Cohesion and Morale in a Fully Remote Environment**
 
@@ -1407,6 +1407,6 @@ Ensuring team cohesion and high morale in a fully remote setting requires delibe
 Maintaining team cohesion and morale in a fully remote environment requires intentional effort and a multifaceted approach. By prioritizing communication, recognition, professional development, and well-being, managers can create a supportive and engaging remote work culture that fosters productivity, satisfaction, and long-term success.
 
     `,
-    messageTimestamp: '2024-11-08T14:45:00.000Z',
+    messageTimestamp: "2024-11-08T14:45:00.000Z",
   },
 ]

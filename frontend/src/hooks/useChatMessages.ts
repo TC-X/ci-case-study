@@ -1,6 +1,6 @@
-import React from 'react'
-import { Message, Thread } from '../types/chat'
-import { mockMessages } from '../mocks/messageData'
+import React from "react"
+import { Message, Thread } from "../types/chat"
+import { mockMessages } from "../mocks/messageData"
 
 interface ChatMessagesProps {
   thread: Thread | null

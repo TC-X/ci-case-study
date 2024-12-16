@@ -1,5 +1,5 @@
-import React from 'react'
-import { Thread } from '../types/chat'
+import React from "react"
+import { Thread } from "../types/chat"
 
 interface ActiveThreadContextType {
   activeThread: Thread | null

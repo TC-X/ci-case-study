@@ -1,6 +1,6 @@
-import { Message } from '../types/chat'
+import { Message } from "../types/chat"
 
-const BACKEND_ENDPOINT = 'http://localhost:5678/api/chat/'
+const BACKEND_ENDPOINT = "http://localhost:5678/api/chat/"
 
 interface getChatResponseProps {
   inputContext: Message[]
@@ -20,15 +20,15 @@ export async function getChatResponse({ inputContext }: getChatResponseProps) {
     })
   )
 
-  console.log('Input context fed to llm (backend):\n', JSON.stringify(normalizedInputContext))
+  console.log("Input context fed to llm (backend):\n", JSON.stringify(normalizedInputContext))
 
   // testing time delay
   await new Promise((resolve) => setTimeout(resolve, 1000))
 
   const response = await fetch(BACKEND_ENDPOINT, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(normalizedInputContext),
   })
@@ -39,10 +39,10 @@ export async function getChatResponse({ inputContext }: getChatResponseProps) {
 
   try {
     const data = await response.json()
-    console.log('Raw respose data from llm (backend):', data)
+    console.log("Raw respose data from llm (backend):", data)
     return data
   } catch (err) {
-    console.error('Error parsing response:', err)
+    console.error("Error parsing response:", err)
     throw err
   }
 }

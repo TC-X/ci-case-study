@@ -1,6 +1,6 @@
-import { useCallback } from 'react'
-import { Message, Thread } from '../types/chat'
-import { getChatResponse } from '../services/chatService'
+import { useCallback } from "react"
+import { Message, Thread } from "../types/chat"
+import { getChatResponse } from "../services/chatService"
 
 interface UseSendMessageProps {
   thread: Thread | null
@@ -21,8 +21,8 @@ export function useSendMessage({ thread, messages, setMessages }: UseSendMessage
       const userMessage: Message = {
         threadId: thread?.threadId,
         messageId: crypto.randomUUID(),
-        messageModel: '',
-        messageAuthor: 'user',
+        messageModel: "",
+        messageAuthor: "user",
         messageContent: contentBody,
         messageTimestamp: new Date().toISOString(),
       }
@@ -46,7 +46,7 @@ export function useSendMessage({ thread, messages, setMessages }: UseSendMessage
         // Set the response message in the chat
         setMessages((prevMessages) => [...prevMessages, responseMessage])
       } catch (error) {
-        console.error('Failed to send message:', error)
+        console.error("Failed to send message:", error)
         console.info(`This could be due to the following reasons:
 
           #################################
@@ -69,7 +69,7 @@ export function useSendMessage({ thread, messages, setMessages }: UseSendMessage
           If the issue persists, please don't hesitate to reach out to me at 306-881-4446 or tc.thitiwat@gmail.com :)
         `)
 
-        alert('Oops! Unable to connect to the backend API. Please check the console for more details.')
+        alert("Oops! Unable to connect to the backend API. Please check the console for more details.")
       }
     },
     [thread, messages, setMessages]

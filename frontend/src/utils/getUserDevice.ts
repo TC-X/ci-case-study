@@ -1,4 +1,4 @@
-import { MOBILE_BREAKPOINT, TABLET_BREAKPOINT } from '../constants/breakpoint'
+import { MOBILE_BREAKPOINT, TABLET_BREAKPOINT } from "../constants/breakpoint"
 
 export interface getUserDeviceProps {
   isMobile: boolean
@@ -14,10 +14,10 @@ export function getUserDevice(request?: Request): getUserDeviceProps {
   // Server-side: Request passed-in, then get user agent from headers.
   // Client-side: No request, then get user agent from navigator.
   const userAgent = request
-    ? request.headers.get('User-Agent') || ''
-    : typeof navigator !== 'undefined'
-    ? navigator.userAgent || ''
-    : ''
+    ? request.headers.get("User-Agent") || ""
+    : typeof navigator !== "undefined"
+    ? navigator.userAgent || ""
+    : ""
 
   const uaIsMobile = /Mobile|Android|iP(hone|od)/i.test(userAgent)
   const uaIsTablet = /Tablet|iPad/i.test(userAgent)
@@ -29,7 +29,7 @@ export function getUserDevice(request?: Request): getUserDeviceProps {
   }
 
   // If on client, further check window width for more accurate detection.
-  const width = typeof window !== 'undefined' ? window.innerWidth : TABLET_BREAKPOINT + 1
+  const width = typeof window !== "undefined" ? window.innerWidth : TABLET_BREAKPOINT + 1
   const widthIsMobile = width <= MOBILE_BREAKPOINT
   const widthIsTablet = width > MOBILE_BREAKPOINT && width <= TABLET_BREAKPOINT
 

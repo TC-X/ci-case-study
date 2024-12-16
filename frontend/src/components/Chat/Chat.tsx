@@ -1,12 +1,12 @@
-import React from 'react'
-import ChatInput from './ChatInput'
-import ChatBody from './ChatBody'
-import ChatHeader from './ChatHeader'
-import scrollToBottom from '../../utils/scrollToBottom'
-import useChatMessages from '../../hooks/useChatMessages'
-import { useSendMessage } from '../../hooks/useSendMessage'
-import { ChatResolvingContextProvider } from '../../context/ChatResolvingContext'
-import { Thread } from '../../types/chat'
+import React from "react"
+import ChatInput from "./ChatInput"
+import ChatBody from "./ChatBody"
+import ChatHeader from "./ChatHeader"
+import scrollToBottom from "../../utils/scrollToBottom"
+import useChatMessages from "../../hooks/useChatMessages"
+import { useSendMessage } from "../../hooks/useSendMessage"
+import { ChatResolvingContextProvider } from "../../context/ChatResolvingContext"
+import { Thread } from "../../types/chat"
 
 interface ChatProps {
   thread: Thread | null
@@ -14,7 +14,7 @@ interface ChatProps {
 
 export default function Chat({ thread }: ChatProps) {
   /* States */
-  const [userPrompt, setUserPrompt] = React.useState('')
+  const [userPrompt, setUserPrompt] = React.useState("")
 
   /* Hooks */
   const { messages, setMessages } = useChatMessages({ thread })
@@ -28,9 +28,9 @@ export default function Chat({ thread }: ChatProps) {
   React.useEffect(() => {
     if (textareaRef.current) {
       textareaRef.current.focus()
-      textareaRef.current.style.height = 'auto'
+      textareaRef.current.style.height = "auto"
     }
-    setUserPrompt('')
+    setUserPrompt("")
     scrollToBottom({ targetElement: scrollWindowRef, smooth: false })
   }, [thread])
 
@@ -41,13 +41,13 @@ export default function Chat({ thread }: ChatProps) {
 
   return (
     <ChatResolvingContextProvider>
-      <div className='h-full flex flex-col items-center'>
-        <div className='mb-4 w-full flex gap-4 items-center'>
+      <div className="h-full flex flex-col items-center">
+        <div className="mb-4 w-full flex gap-4 items-center">
           <ChatHeader thread={thread} />
         </div>
-        <div className='size-full flex justify-center overflow-hidden'>
-          <div className='w-full max-w-[48rem] flex flex-col overflow-hidden'>
-            <div className='flex-1 overflow-y-auto' ref={scrollWindowRef}>
+        <div className="size-full flex justify-center overflow-hidden">
+          <div className="w-full max-w-[48rem] flex flex-col overflow-hidden">
+            <div className="flex-1 overflow-y-auto" ref={scrollWindowRef}>
               <ChatBody messages={messages} />
             </div>
             <div>

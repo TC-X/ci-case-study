@@ -7,7 +7,7 @@ export default function scrollToBottom({ targetElement, smooth = true }: scrollT
   setTimeout(() => {
     targetElement.current?.scrollTo({
       top: targetElement.current?.scrollHeight,
-      behavior: smooth ? 'smooth' : 'auto',
+      behavior: smooth ? "smooth" : "auto",
     })
   }, 10)
 }
