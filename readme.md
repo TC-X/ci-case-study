@@ -1,3 +1,5 @@
+![Ci Chatbot Case Study (Take-Home Assignment)](https://github.com/TC-X/ci-case-study/blob/main/frontend/public/readme-cover.png?raw=true)
+
 # C[i] Chatbot Case Study (Take-Home Assignment)
 
 **A demonstration of a simple chatbot application built to showcase frontend and backend integration, responsive UI, and conversational logic, based on the given assignment requirements.**
