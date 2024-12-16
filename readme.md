@@ -171,7 +171,7 @@ cd ci-case-study
 4. **Run the server**:
 
    ```bash
-   uvicorn app.main:app --reload --port 5678
+   python3 -m app.main
    ```
 
    The backend server should now be running at [http://localhost:5678](http://localhost:5678).

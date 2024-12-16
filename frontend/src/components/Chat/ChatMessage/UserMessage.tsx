@@ -1,7 +1,6 @@
 import React from 'react'
 import { Message } from '../../../types/chat'
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
+import Markdown from '../../UI/Markdown'
 
 interface UserMessageProps {
   message: Message
@@ -20,7 +19,7 @@ export default function UserMessage({ message }: UserMessageProps) {
     >
       <h6 className='sr-only'>User asked:</h6>
       <div className='[&>*:last-child]:m-0'>
-        <ReactMarkdown children={message.messageContent} remarkPlugins={[remarkGfm]} />
+        <Markdown message={message} />
       </div>
     </article>
   )

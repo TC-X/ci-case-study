@@ -20,7 +20,7 @@ export async function getChatResponse({ inputContext }: getChatResponseProps) {
     })
   )
 
-  console.log('Input context fed to llm (backend):\n', normalizedInputContext)
+  console.log('Input context fed to llm (backend):\n', JSON.stringify(normalizedInputContext))
 
   // testing time delay
   await new Promise((resolve) => setTimeout(resolve, 1000))
