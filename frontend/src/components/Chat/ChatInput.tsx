@@ -32,8 +32,11 @@ export default function ChatInput({
 
   const formSubmission = async () => {
     // post-submit operations
+    if (textareaRef.current) {
+      textareaRef.current?.focus()
+      textareaRef.current.style.height = 'auto'
+    }
     setUserPrompt('')
-    textareaRef.current?.focus()
     setIsResolving(true) // flag to prevent multiple submissions
     scrollToBottom({ targetElement: scrollWindowRef })
 
