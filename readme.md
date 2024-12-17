@@ -110,7 +110,7 @@ No authentication, WebSockets, or persistent storage layers are implemented, as 
 
 This application is designed around a simple conversation thread model. Threads contain messages from either the user or the system, allowing for a clear, organized context for each conversation.
 
-#### Core Data Strucures (Types)
+#### Core Data Structures (Types)
 
 - **Thread**:
 
