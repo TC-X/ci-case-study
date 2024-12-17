@@ -287,7 +287,7 @@ These guidelines helped create a codebase that is easy to navigate, extend, and 
 
 **Enhancement Features**
 
-- **Dynamic Components:** Return data in formats that can be displayed as special UI elements (e.g., charts).
+- **Dynamic Components:** Expand the DCP to support more complex UI components and libraries.
 - **Message Editing & Branching:** Allow users to revise previous messages and branch conversations.
 - **File Uploads:** Enable sending attachments within chats.
 - **Web Data Integration:** Incorporate real-time information from external sources to improve response quality.
