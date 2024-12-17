@@ -1,6 +1,8 @@
 import React from "react"
 import { Thread } from "../types/chat"
 import { useActiveThreadContext } from "../context/ActiveThreadContext"
+import { getUserDevice } from "../utils/getUserDevice"
+import { useSidebarContext } from "../context/SidebarContext"
 
 interface ThreadListItemProps {
   thread: Thread
@@ -8,11 +10,15 @@ interface ThreadListItemProps {
 
 export default function ThreadListItem({ thread }: ThreadListItemProps) {
   /* States */
+  const { isMobile } = getUserDevice()
+  const { setIsSidebarHidden } = useSidebarContext()
   const { activeThread, setActiveThread } = useActiveThreadContext()
 
   const handleThreadClick = () => {
     setActiveThread(thread)
     window.history.pushState(null, "", `/c/${thread.threadId}`)
+
+    if (isMobile) setIsSidebarHidden(true)
   }
 
   return (

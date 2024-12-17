@@ -43,7 +43,7 @@ export default function ChatPage(): React.ReactElement {
       <aside>
         <Sidebar threads={mockThreads} />
       </aside>
-      <main className="w-full flex-1">
+      <main className="w-full flex-1 overflow-hidden">
         <Chat thread={activeThread} />
       </main>
     </div>
