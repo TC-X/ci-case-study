@@ -9,7 +9,7 @@ This project consists of:
 1. **Frontend (React)**: A React-based user interface that displays a chat interface, handles user input, and integrates with the backend API.
 2. **Backend (FastAPI)**: A Python-based FastAPI server providing a health check endpoint and a chat endpoint that returns predefined responses—no LLM integration, authentication, or persistent storage required.
 
-**5-Day Roadmap**: I used a simple Notion Kanban board to break down tasks into actionable steps with clear due dates, helping me stay organized and meet the 5-day challenge. You can check out the [C[i] Chatbot Case Study – 5 days Roadmap Notion Page](https://www.notion.so/C-i-Chatbot-Case-Study-5-days-Roadmap-15c0a7d1869280dcbc9cce1cc7d7db73?pvs=4) to see how the plan was laid out.
+**Project Timeline & Roadmap**: I used a simple Notion Kanban board to break down tasks into actionable steps with clear due dates, helping me stay organized and meet the deadline. You can check out the [C[i] Chatbot Case Study – Roadmap Notion Page](https://www.notion.so/C-i-Chatbot-Case-Study-5-days-Roadmap-15c0a7d1869280dcbc9cce1cc7d7db73?pvs=4) to see how the plan was laid out.
 
 ---
 
@@ -24,10 +24,23 @@ This project consists of:
   - **GET `/api/health`**: Health check endpoint.
   - **POST `/api/chat`**: Accepts a user message and returns a predefined response (no LLM integration).
 
+### Dynamic Component Parser (DCP)
+
+Introducing the **Dynamic Component Parser (DCP)**, a beta-version heuristic-based parser designed to dynamically generate components from LLM responses. The DCP processes incoming messages and translates them into an array of React components or markup, enabling the creation of UI elements dynamically.
+
+At this stage:
+
+- **Pre-built Components**: DCP can render pre-developed components and libraries already included in the project.
+- **Recharts Integration**: DCP can now generate most of **Recharts** graphs straight from LLMs without the need to pre-build any specific components.
+
+**Future Enhancements**:  
+If inference speed is not a constraint, there is strong potential to dynamically **import new libraries** at runtime, mount them, and generate any conceivable UI component on-the-fly without requiring pre-imported configurations or preset components.
+
 ### Additional Enhancements
 
 - **Sidebar**: Use the sidebar to navigate between preset chat threads. While new thread creation isn't fully implemented due to time constraints, these preset threads store new messages and preserve conversation history (stored in the browser only).
 - **Markdown Support**: Responses are rendered with markdown for richer formatting.
+- **Dynamic Embeddable Content (HTML Markup)**: Allows embedding rich HTML content seamlessly. Supported content types include: videos, maps, images, and more.
 - **Preventive Logic & Loading Skeleton**: Provides user feedback while waiting for responses.
 - **Local Storage Persistence (Frontend Only)**: Conversation histories are stored on the client side for convenience.
 
@@ -80,6 +93,8 @@ backend/
 │   │   └── routes/
 │   │       ├── health.py     # Health check endpoint (GET /api/health)
 │   │       ├── chat.py       # Chat endpoint (POST /api/chat with predefined responses)
+│   ├── mocks/
+│   │   ├── responseData.py   # Mock data for testing (predefined responses)
 │   ├── services/
 │   │   └── ai_service.py     # Mock service returning predefined responses
 └── requirements.txt          # Python dependencies
