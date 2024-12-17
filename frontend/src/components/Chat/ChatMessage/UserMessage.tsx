@@ -19,7 +19,7 @@ export default function UserMessage({ message }: UserMessageProps) {
     >
       <h6 className="sr-only">User asked:</h6>
       <div className="[&>*:last-child]:m-0">
-        <Markdown message={message} />
+        <Markdown messageContent={message.messageContent} />
       </div>
     </article>
   )
