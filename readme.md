@@ -31,7 +31,7 @@ Introducing the **Dynamic Component Parser (DCP)**, a beta-version heuristic-bas
 At this stage:
 
 - **Pre-built Components**: DCP can render pre-developed components and libraries already included in the project.
-- **Recharts Integration**: DCP can now generate most of **Recharts** graphs straight from LLMs without the need to pre-build any specific components.
+- **Recharts Integration**: DCP can now generate most of **Recharts graphs straight from LLMs** without the need to pre-build any specific components.
 
 **Future Enhancements**:  
 If inference speed is not a constraint, there is strong potential to dynamically **import new libraries** at runtime, mount them, and generate any conceivable UI component on-the-fly without requiring pre-imported configurations or preset components.
