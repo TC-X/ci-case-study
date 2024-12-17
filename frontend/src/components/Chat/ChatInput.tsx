@@ -7,18 +7,11 @@ interface ChatInputProps {
   onSendMessage: (contentBody: string) => Promise<void>
   textareaRef: React.RefObject<HTMLTextAreaElement | null>
   scrollWindowRef: React.RefObject<HTMLDivElement | null>
-  userPrompt: string
-  setUserPrompt: React.Dispatch<React.SetStateAction<string>>
 }
 
-export default function ChatInput({
-  onSendMessage,
-  textareaRef,
-  scrollWindowRef,
-  userPrompt,
-  setUserPrompt,
-}: ChatInputProps) {
+export default function ChatInput({ onSendMessage, textareaRef, scrollWindowRef }: ChatInputProps) {
   /* States */
+  const [userPrompt, setUserPrompt] = React.useState("")
   const { isResolving, setIsResolving } = useChatResolvingContext()
 
   /* auto-grow textarea based on content */

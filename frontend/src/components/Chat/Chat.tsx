@@ -13,9 +13,6 @@ interface ChatProps {
 }
 
 export default function Chat({ thread }: ChatProps) {
-  /* States */
-  const [userPrompt, setUserPrompt] = React.useState("")
-
   /* Hooks */
   const { messages, setMessages } = useChatMessages({ thread })
   const { handleSendMessage } = useSendMessage({ thread, messages, setMessages })
@@ -30,7 +27,6 @@ export default function Chat({ thread }: ChatProps) {
       textareaRef.current.focus()
       textareaRef.current.style.height = "auto"
     }
-    setUserPrompt("")
     scrollToBottom({ targetElement: scrollWindowRef, smooth: false })
   }, [thread])
 
@@ -52,11 +48,10 @@ export default function Chat({ thread }: ChatProps) {
             </div>
             <div>
               <ChatInput
+                key={thread?.threadId || "new-chat"}
                 onSendMessage={handleSendMessage}
                 textareaRef={textareaRef}
                 scrollWindowRef={scrollWindowRef}
-                userPrompt={userPrompt}
-                setUserPrompt={setUserPrompt}
               />
             </div>
           </div>
