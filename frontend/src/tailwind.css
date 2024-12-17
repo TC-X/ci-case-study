@@ -41,3 +41,8 @@ button img {
 .recharts-legend-wrapper {
   @apply size-full max-w-full;
 }
+
+.markdown-dynamic-html > iframe,
+.markdown-dynamic-html > img {
+  @apply size-full aspect-video object-cover rounded-3xl;
+}

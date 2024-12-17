@@ -1,6 +1,7 @@
 import React from "react"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
+import rehypeRaw from "rehype-raw"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism"
 
@@ -11,8 +12,8 @@ interface MarkdownProps {
 export default function Markdown({ messageContent }: MarkdownProps) {
   return (
     <ReactMarkdown
-      children={messageContent}
       remarkPlugins={[remarkGfm]}
+      rehypePlugins={[rehypeRaw]} // allows raw HTML in markdown
       components={{
         code({ node, inline, className, children, ...props }) {
           if (inline) {
@@ -34,6 +35,8 @@ export default function Markdown({ messageContent }: MarkdownProps) {
           )
         },
       }}
-    />
+    >
+      {messageContent}
+    </ReactMarkdown>
   )
 }

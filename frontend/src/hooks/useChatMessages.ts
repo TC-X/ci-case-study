@@ -19,8 +19,8 @@ export default function useChatMessages({ thread }: ChatMessagesProps) {
 
     // NOTE: In a real application, we would use a more sophisticated caching strategy
     // ** since we have timestamp in the message, we could set limit or expiration time for the local storage
-    const cachedMessages = localStorage.getItem(thread.threadId)
-    // const cachedMessages = undefined // to disable local storage for development
+    // const cachedMessages = localStorage.getItem(thread.threadId)
+    const cachedMessages = undefined // to disable local storage for development
 
     if (cachedMessages) {
       setMessages(JSON.parse(cachedMessages))
