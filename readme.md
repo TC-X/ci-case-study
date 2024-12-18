@@ -9,7 +9,7 @@ This project consists of:
 1. **Frontend (React)**: A React-based user interface that displays a chat interface, handles user input, and integrates with the backend API.
 2. **Backend (FastAPI)**: A Python-based FastAPI server providing a health check endpoint and a chat endpoint that returns predefined responses—no LLM integration, authentication, or persistent storage required.
 
-**Project Timeline & Roadmap**: I used a simple Notion Kanban board to break down tasks into actionable steps with clear due dates, helping me stay organized and meet the deadline. You can check out the [C[i] Chatbot Case Study – Roadmap Notion Page](https://www.notion.so/C-i-Chatbot-Case-Study-5-days-Roadmap-15c0a7d1869280dcbc9cce1cc7d7db73?pvs=4) to see how the plan was laid out.
+**Project Timeline & Roadmap**: I used a simple Notion Kanban board to break down tasks into actionable steps with clear due dates, helping me stay organized and meet the deadline. You can check out the [C[i] Chatbot Case Study – Roadmap Notion Page](https://toothsome-faucet-228.notion.site/C-i-Chatbot-Case-Study-Project-Timeline-Roadmap-15c0a7d1869280dcbc9cce1cc7d7db73) to see how the plan was laid out.
 
 ---
 
